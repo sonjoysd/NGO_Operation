@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+
+<AnchorPane prefHeight="462.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.sonjoy_2411704.contoller_class.beneficiary.enrollSkillDevelopmentProgramController">
+   <children>
+      <Button layoutX="-3.0" layoutY="23.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Apply for NGO Support Program" />
+      <Button layoutX="-3.0" layoutY="73.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Update Personal &amp; Household Information" />
+      <Button layoutX="-3.0" layoutY="123.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Check Application &amp; Service Status" />
+      <Button layoutX="-2.0" layoutY="173.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Material Assistance" />
+      <Button layoutX="-2.0" layoutY="224.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Enroll in Skills Development Program" />
+      <Button layoutX="-2.0" layoutY="274.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Community Services" />
+      <Button layoutX="-2.0" layoutY="324.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Submit Service Feedback" />
+      <Button layoutX="-1.0" layoutY="374.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Report NGO Service Delivery Problem" />
+      <Line endX="-136.60000610351562" endY="322.0" layoutX="388.0" layoutY="146.0" startX="-136.59999084472656" startY="-143.1999969482422" />
+      <Label layoutX="348.0" layoutY="8.0" prefHeight="29.0" prefWidth="178.0" style="-fx-background-color: Aqua;" text="Enroll Skill Development Program" textFill="#d41010" />
+      <Label layoutX="273.0" layoutY="64.0" text="Beneficiary  ID:" />
+      <Label layoutX="312.0" layoutY="93.0" text="Name:" />
+      <Label layoutX="311.0" layoutY="122.0" text="Phone:" />
+      <TextField layoutX="378.0" layoutY="61.0" />
+      <TextField layoutX="378.0" layoutY="92.0" />
+      <TextField layoutX="378.0" layoutY="119.0" />
+      <ComboBox layoutX="271.0" layoutY="161.0" prefWidth="150.0" promptText="Training Program" />
+      <ComboBox layoutX="437.0" layoutY="160.0" prefWidth="150.0" promptText="Prefered Schedual " />
+      <Button layoutX="411.0" layoutY="212.0" mnemonicParsing="false" text="Enroll" />
+      <Button layoutX="414.0" layoutY="257.0" mnemonicParsing="false" text="Clear" />
+      <Label layoutX="312.0" layoutY="327.0" prefHeight="46.0" prefWidth="250.0" style="-fx-background-color: aqua;" text="Enrollment Status" />
+   </children>
+</AnchorPane>
