@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="666.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.shafial_2411827.controller.auditor.paperauditController">
+   <children>
+      <Label fx:id="lavalviw" alignment="CENTER" contentDisplay="CENTER" layoutX="217.0" layoutY="18.0" prefHeight="31.0" prefWidth="292.0" style="-fx-background-color: yellow;" text="Paper Audit Findings" />
+      <Text layoutX="48.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Audit Scope" />
+      <ComboBox fx:id="AuditScopeCB" layoutX="123.0" layoutY="73.0" prefWidth="150.0" />
+      <Text layoutX="44.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Period Start" />
+      <DatePicker fx:id="PeriodDP" layoutX="111.0" layoutY="103.0" />
+      <Text layoutX="14.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Findings Cetegory" />
+      <ComboBox fx:id="FindingCetagoryCB" layoutX="123.0" layoutY="138.0" prefWidth="150.0" />
+      <TextArea fx:id="EnterPolicyTA" layoutX="62.0" layoutY="194.0" prefHeight="74.0" prefWidth="322.0" text="Enter a policy" />
+      <TextArea fx:id="ReviewTA" layoutX="62.0" layoutY="284.0" prefHeight="74.0" prefWidth="322.0" text="Review selected findings" />
+      <CheckBox fx:id="IncludeRecomdetionCm" layoutX="454.0" layoutY="312.0" mnemonicParsing="false" text="Include Recomandetion in the  fidings reports" />
+      <TableView fx:id="TableView" layoutX="75.0" layoutY="378.0" prefHeight="200.0" prefWidth="379.0">
+        <columns>
+          <TableColumn fx:id="FindingsIdCL" prefWidth="75.0" text="Findings id" />
+          <TableColumn fx:id="SourceCL" prefWidth="75.0" text="Source ref." />
+            <TableColumn fx:id="ObservationCL" prefWidth="75.0" text="Observation" />
+            <TableColumn fx:id="RiskCL" prefWidth="75.0" text="Risk" />
+            <TableColumn fx:id="StatusCL" prefWidth="75.0" text="Status" />
+        </columns>
+      </TableView>
+      <Text fx:id="Select" layoutX="48.0" layoutY="613.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select the reporting period and audut scope" />
+      <Button layoutX="529.0" layoutY="404.0" mnemonicParsing="false" onAction="#PreviewOnAction" text="Preview Report" />
+      <Button layoutX="529.0" layoutY="459.0" mnemonicParsing="false" onAction="#ExportReportOnAction" text="Export Report" />
+      <Button layoutX="529.0" layoutY="511.0" mnemonicParsing="false" onAction="#GeneratFindingOnAction" text="Generat findings" />
+      <Text layoutX="510.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Project" />
+      <ComboBox fx:id="ProjectCB" layoutX="574.0" layoutY="58.0" prefWidth="150.0" />
+      <Text layoutX="490.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Period End" />
+      <DatePicker fx:id="PerioEnddDP" layoutX="571.0" layoutY="101.0" />
+      <Text layoutX="500.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Risk level" />
+      <ComboBox fx:id="RiskCB" layoutX="574.0" layoutY="142.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

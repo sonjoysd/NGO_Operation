@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
 
+<AnchorPane prefHeight="673.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.shafial_2411827.controller.auditor.examineController">
+   <children>
+      <Label fx:id="lavelview" layoutX="281.0" layoutY="34.0" prefHeight="32.0" prefWidth="194.0" style="-fx-background-color: blue;" text="Examine Project Budet Compaillence" />
+      <Text layoutX="41.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Audit Scopet" />
+      <ComboBox fx:id="AuditCB" layoutX="151.0" layoutY="85.0" prefWidth="150.0" />
+      <Text layoutX="49.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Period Start" />
+      <DatePicker fx:id="PriodDP" layoutX="135.0" layoutY="123.0" />
+      <Text layoutX="49.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="budget reference" />
+      <TextField fx:id="BudgetTF" layoutX="152.0" layoutY="160.0" />
+      <Text layoutX="50.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Control critersion" />
+      <TextField fx:id="ControlTF" layoutX="162.0" layoutY="201.0" />
+      <Text fx:id="Variance" layoutX="60.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="variance Note" />
+      <TextArea fx:id="Explainview" layoutX="40.0" layoutY="277.0" prefHeight="82.0" prefWidth="330.0" text="Explaine any variance" />
+      <TableView fx:id="TableView" layoutX="51.0" layoutY="420.0" prefHeight="178.0" prefWidth="379.0">
+        <columns>
+          <TableColumn fx:id="BudgetLineCL" prefWidth="75.0" text="Budget line " />
+          <TableColumn fx:id="AppovedCL" prefWidth="75.0" text="Appoved" />
+            <TableColumn fx:id="ActualCL" prefWidth="75.0" text="Actual" />
+            <TableColumn fx:id="VarianceCL" prefWidth="75.0" text="Variance" />
+            <TableColumn fx:id="StatusCl" prefWidth="75.0" text="Status" />
+        </columns>
+      </TableView>
+      <Text fx:id="budgetCpmprison" layoutX="70.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget comparison" />
+      <Button layoutX="562.0" layoutY="430.0" mnemonicParsing="false" onAction="#CompareBudgetOnAction" text="Compare Budget" />
+      <Button layoutX="569.0" layoutY="474.0" mnemonicParsing="false" onAction="#OpenRecordOnAction" text="open Record" />
+      <Button layoutX="569.0" layoutY="526.0" mnemonicParsing="false" onAction="#SaveReviewOnAction" text=" save review" />
+      <Text fx:id="SelectProject" layoutX="45.0" layoutY="628.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a project" />
+   </children>
 </AnchorPane>
