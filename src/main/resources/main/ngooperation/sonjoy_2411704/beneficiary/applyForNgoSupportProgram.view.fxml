@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="361.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.sonjoy_2411704.contoller_class.beneficiary.applyForNgoSupportProgramController">
+<AnchorPane prefHeight="361.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.sonjoy_2411704.contoller_class.beneficiary.ApplyForNgoSupportProgramController">
    <children>
       <Button layoutY="13.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Apply for NGO Support Program" />
       <Button layoutY="63.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Update Personal &amp; Household Information" />
