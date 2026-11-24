@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-
 <AnchorPane prefHeight="486.0" prefWidth="636.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.sonjoy_2411704.contoller_class.account_officer.ProcessAuthorizedProjectController">
    <children>
       <Label layoutX="349.0" layoutY="4.0" prefHeight="46.0" prefWidth="176.0" style="-fx-background-color: aqua;" text=" Process Authorized Dashboard" textFill="#d11313" />
@@ -25,8 +24,10 @@
       <Button layoutX="503.0" layoutY="76.0" mnemonicParsing="false" text="Confirm Decission" />
       <TableView layoutX="257.0" layoutY="225.0" prefHeight="200.0" prefWidth="378.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn prefWidth="88.7999267578125" text="Request Id" />
+          <TableColumn prefWidth="71.2000732421875" text="Amount" />
+            <TableColumn prefWidth="92.800048828125" text="Project" />
+            <TableColumn prefWidth="126.39999389648438" text="Authorization Status" />
         </columns>
       </TableView>
    </children>
