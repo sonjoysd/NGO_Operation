@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="497.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.shafial_2411827.controller.field_officer.MainDashboardController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="187.0" layoutY="14.0" prefHeight="53.0" prefWidth="526.0" style="-fx-background-color: aqua;" text="Dashbord" />
+      <Button layoutX="72.0" layoutY="128.0" mnemonicParsing="false" onAction="#ConductcommunityOnAction" text="conduct community fields visites" />
+      <Button layoutX="68.0" layoutY="186.0" mnemonicParsing="false" onAction="#RegisterNewOnAction" text="Register new beneficies " />
+      <Button layoutX="64.0" layoutY="243.0" mnemonicParsing="false" onAction="#CollectBeneficiariesOnAction" text="Collect Beneficiary Information" />
+      <Button layoutX="71.0" layoutY="296.0" mnemonicParsing="false" onAction="#IdentifyCommunityOnAction" text="Identify community needs" />
+      <Button layoutX="538.0" layoutY="103.0" mnemonicParsing="false" onAction="#MonitorProjectOnAction" text="Monitor Project activites " />
+      <Button layoutX="545.0" layoutY="168.0" mnemonicParsing="false" onAction="#DistributrApprovedOnAction" text="Distribute approved project resource" />
+      <Button layoutX="545.0" layoutY="230.0" mnemonicParsing="false" onAction="#CollectCommunityOnAction" text="Collect community fedback" />
+      <Button layoutX="545.0" layoutY="283.0" mnemonicParsing="false" onAction="#SubmitFieldOnAction" text="Submit field activity reports" />
+   </children>
+</AnchorPane>
