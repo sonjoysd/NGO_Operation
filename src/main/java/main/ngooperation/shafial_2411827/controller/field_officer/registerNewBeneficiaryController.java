@@ -5,7 +5,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class registerNewController
+public class registerNewBeneficiaryController
 {
     @javafx.fxml.FXML
     private TableColumn ConductCL;
@@ -36,10 +36,6 @@ public class registerNewController
 
     @javafx.fxml.FXML
     public void BackDashbordOnAction(ActionEvent actionEvent) {
-    }
-
-    @javafx.fxml.FXML
-    public void CheackOnAction(ActionEvent actionEvent) {
     }
 
     @javafx.fxml.FXML
