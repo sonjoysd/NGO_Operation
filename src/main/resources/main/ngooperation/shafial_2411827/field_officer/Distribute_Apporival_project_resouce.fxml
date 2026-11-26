@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="659.0" prefWidth="784.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.shafial_2411827.controller.field_officer.distributrApprovalController">
+   <children>
+      <Label layoutX="310.0" layoutY="11.0" style="-fx-background-color: aqua;" text="Distribute Approved Project Resource " />
+      <Text layoutX="80.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Project" />
+      <ComboBox fx:id="ProjectCB" layoutX="143.0" layoutY="42.0" prefWidth="150.0" />
+      <Text layoutX="85.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Allocation Referanceoject" />
+      <TextField fx:id="AllocationTF" layoutX="243.0" layoutY="74.0" />
+      <Text layoutX="117.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aproved Qauntity" />
+      <TextField fx:id="ApprovedTF" layoutX="243.0" layoutY="114.0" />
+      <Text layoutX="117.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Distribution Date" />
+      <DatePicker fx:id="DistributionDP" layoutX="223.0" layoutY="148.0" />
+      <Text layoutX="113.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beneficiary Refereance" />
+      <TextField fx:id="BeneficiaryTF" layoutX="248.0" layoutY="186.0" />
+      <Text layoutX="114.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity Relased" />
+      <TextField fx:id="QuantityRelasedTF" layoutX="236.0" layoutY="221.0" />
+      <Text layoutX="117.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Distribution Decition" />
+      <ComboBox fx:id="DistributionCB" layoutX="235.0" layoutY="259.0" prefWidth="150.0" />
+      <CheckBox fx:id="DecisionCM" layoutX="503.0" layoutY="86.0" mnemonicParsing="false" text="Deccecion Acknolage hand over " />
+      <TextArea fx:id="RecordtheTA" layoutX="72.0" layoutY="296.0" prefHeight="58.0" prefWidth="499.0" promptText="REcord the handover referance" />
+      <TableView fx:id="tableView" layoutX="59.0" layoutY="379.0" prefHeight="200.0" prefWidth="379.0">
+        <columns>
+          <TableColumn fx:id="AllocationIdCL" prefWidth="88.79998779296875" text="Allocation id" />
+          <TableColumn fx:id="ResourceCL" prefWidth="61.60003662109375" text="Resource " />
+            <TableColumn fx:id="ApprovedCL" prefWidth="75.0" text="Approved" />
+            <TableColumn fx:id="RemainingCL" prefWidth="75.0" text="Remaining" />
+            <TableColumn fx:id="StatusCL" prefWidth="75.0" text="Status" />
+        </columns>
+      </TableView>
+      <Button layoutX="523.0" layoutY="406.0" mnemonicParsing="false" onAction="#LoadAllocationOnAction" text="Load Allocation" />
+      <Button layoutX="523.0" layoutY="441.0" mnemonicParsing="false" onAction="#OpenRecordOnACtion" text="Open Record" />
+      <Button layoutX="523.0" layoutY="479.0" mnemonicParsing="false" onAction="#REcordDicisionOnAction" text="Record Decision" />
+      <Button layoutX="523.0" layoutY="518.0" mnemonicParsing="false" onAction="#BackDashbordOnAction" text="Back Dashbord" />
+   </children>
+</AnchorPane>
