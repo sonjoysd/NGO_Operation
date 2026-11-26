@@ -21,12 +21,12 @@
       <Text layoutX="145.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
       <TextField fx:id="AdressTF" layoutX="220.0" layoutY="164.0" />
       <TextArea fx:id="RecordRElativeTA" layoutX="119.0" layoutY="207.0" prefHeight="110.0" prefWidth="259.0" promptText="Record Relevent house hold" />
-      <TableView layoutX="47.0" layoutY="422.0" prefHeight="200.0" prefWidth="561.0">
+      <TableView fx:id="tableView" layoutX="47.0" layoutY="422.0" prefHeight="200.0" prefWidth="561.0">
         <columns>
-          <TableColumn fx:id="BeneficiresCL" prefWidth="75.0" text="Benefiries id" />
-          <TableColumn fx:id="FullNameCL" prefWidth="75.0" text="full name " />
-            <TableColumn fx:id="ConductCL" prefWidth="75.0" text="Contact" />
-            <TableColumn fx:id="ServicesAreaCL" prefWidth="75.0" text="Sercies Area" />
+          <TableColumn fx:id="BeneficiresCL" prefWidth="108.80001831054688" text="Benefiries id" />
+          <TableColumn fx:id="FullNameCL" prefWidth="127.20001220703125" text="full name " />
+            <TableColumn fx:id="ConductCL" prefWidth="139.199951171875" text="Contact" />
+            <TableColumn fx:id="ServicesAreaCL" prefWidth="185.5999755859375" text="Sercies Area" />
         </columns>
       </TableView>
       <Button layoutX="529.0" layoutY="396.0" mnemonicParsing="false" onAction="#ViewDetailsOnAction" text="View details" />
