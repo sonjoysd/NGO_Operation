@@ -26,11 +26,13 @@
       <Label layoutX="266.0" layoutY="182.0" text="Phone Num:" />
       <Label layoutX="266.0" layoutY="213.0" text="House hold Info:" />
       <Label layoutX="267.0" layoutY="246.0" text="Request Date:" />
-      <Button layoutX="548.0" layoutY="239.0" mnemonicParsing="false" onAction="#submitOnAction" prefHeight="31.0" prefWidth="75.0" text="Submit" />
+      <Button layoutX="400.0" layoutY="321.0" mnemonicParsing="false" onAction="#submitOnAction" prefHeight="31.0" prefWidth="75.0" text="Submit" />
       <TextField fx:id="beneficiaryIdTF" layoutX="363.0" layoutY="59.0" />
       <TextField fx:id="beneficiaryNameTF" layoutX="378.0" layoutY="96.0" />
       <TextField fx:id="phoneNumTF" layoutX="348.0" layoutY="178.0" />
       <TextField fx:id="houseHoldInfoTF" layoutX="363.0" layoutY="209.0" />
       <DatePicker fx:id="requestDateDP" layoutX="351.0" layoutY="242.0" />
+      <Label layoutX="269.0" layoutY="278.0" text="Application ID:" />
+      <TextField fx:id="applicationIdTF" layoutX="366.0" layoutY="274.0" />
    </children>
 </AnchorPane>
