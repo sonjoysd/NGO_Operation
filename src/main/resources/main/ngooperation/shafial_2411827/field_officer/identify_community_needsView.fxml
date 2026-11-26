@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="641.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.shafial_2411827.controller.field_officer.IdentifyController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="278.0" layoutY="6.0" prefHeight="31.0" prefWidth="218.0" style="-fx-background-color: Aqua;" text="Indentify Community needs" />
+      <Text layoutX="71.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Services Area" />
+      <ComboBox fx:id="ServicesCB" layoutX="166.0" layoutY="55.0" prefWidth="150.0" />
+      <Text layoutX="63.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field Visit Area" />
+      <TextField fx:id="FieldTF" layoutX="167.0" layoutY="87.0" />
+      <Text layoutX="66.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Need Catagory" />
+      <ComboBox layoutX="168.0" layoutY="121.0" prefWidth="150.0" />
+      <Text layoutX="69.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assesment date" />
+      <DatePicker fx:id="AssesmentDP" layoutX="161.0" layoutY="152.0" />
+      <Text layoutX="82.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Community" />
+      <TextField fx:id="CommunityTF" layoutX="166.0" layoutY="187.0" />
+      <Text layoutX="82.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Priority" />
+      <ComboBox fx:id="PriorityCB" layoutX="165.0" layoutY="218.0" prefWidth="150.0" />
+      <TextArea fx:id="DescribeTA" layoutX="41.0" layoutY="255.0" prefHeight="62.0" prefWidth="227.0" promptText="Descrfibe the need" />
+      <TextArea fx:id="RecordTF" layoutX="273.0" layoutY="255.0" prefHeight="62.0" prefWidth="227.0" promptText="Record the Refarrnal" />
+      <CheckBox layoutX="544.0" layoutY="79.0" mnemonicParsing="false" text="Flag for urjent Attendion" />
+      <TableView fx:id="tableView" layoutX="46.0" layoutY="350.0" prefHeight="200.0" prefWidth="387.0">
+        <columns>
+          <TableColumn fx:id="VisitCL" prefWidth="75.0" text="Visit Id" />
+          <TableColumn fx:id="DateCL" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="CommunityCL" prefWidth="75.0" text="Community" />
+            <TableColumn fx:id="NeddCatagoryCL" prefWidth="92.0" text="Need catagory" />
+            <TableColumn fx:id="PriorityCL" prefWidth="68.79997558593749" text="priority" />
+        </columns>
+      </TableView>
+      <Button layoutX="509.0" layoutY="350.0" mnemonicParsing="false" onAction="#LoadVisitOnAction" text="Load Visit" />
+      <Button layoutX="510.0" layoutY="398.0" mnemonicParsing="false" onAction="#OpenOnAction" text="Open Record" />
+      <Button layoutX="515.0" layoutY="441.0" mnemonicParsing="false" onAction="#SaveOnAction" text="save Assesment" />
+      <Button layoutX="518.0" layoutY="484.0" mnemonicParsing="false" onAction="#BackDashbordOnAction" text="back Dashbord" />
+   </children>
+</AnchorPane>
