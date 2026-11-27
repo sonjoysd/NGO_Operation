@@ -8,6 +8,7 @@ import main.ngooperation.mamun_2430986.Model.NonUser.GrantApplication;
 import main.ngooperation.mamun_2430986.Model.NonUser.OrganizationPolicy;
 import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectBudget;
+import main.ngooperation.mamun_2430986.Model.NonUser.RiskAlert;
 import main.ngooperation.mamun_2430986.Utility.FileReadWrite;
 
 import java.time.LocalDate;
@@ -57,6 +58,13 @@ public class DataSeeder {
         policies.add(new OrganizationPolicy("POL-604", "Leave Carryover Policy", "Human Resources", "HR Manager", "Approved", "Effective Q2"));
         FileReadWrite.saveData(policies, "OrganizationPolicies.bin");
 
-        System.out.println("Seeded PerformanceIndicators.bin, ProjectBudgets.bin, GrantApplications.bin, DonorReports.bin, AuditSummaries.bin, and OrganizationPolicies.bin");
+        ObservableList<RiskAlert> alerts = FXCollections.observableArrayList();
+        alerts.add(new RiskAlert("ALT-701", "PRJ-01", "Supply chain delay in northern region", "High", "Project Manager", "Open", LocalDate.of(2026, 3, 21)));
+        alerts.add(new RiskAlert("ALT-702", "PRJ-02", "Donor disbursement pending signature", "Medium", "Account Officer", "Monitoring", LocalDate.of(2026, 3, 23)));
+        alerts.add(new RiskAlert("ALT-703", "PRJ-03", "Monsoon flooding near shelter site", "Critical", "Project Coordinator", "Escalated", LocalDate.of(2026, 3, 25)));
+        alerts.add(new RiskAlert("ALT-704", "PRJ-04", "Minor training room schedule overlap", "Low", "HR Manager", "Resolved", LocalDate.of(2026, 3, 26)));
+        FileReadWrite.saveData(alerts, "RiskAlerts.bin");
+
+        System.out.println("Seeded PerformanceIndicators.bin, ProjectBudgets.bin, GrantApplications.bin, DonorReports.bin, AuditSummaries.bin, OrganizationPolicies.bin, and RiskAlerts.bin");
     }
 }

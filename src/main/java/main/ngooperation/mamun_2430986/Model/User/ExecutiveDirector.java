@@ -9,6 +9,7 @@ import main.ngooperation.mamun_2430986.Model.NonUser.OrganizationPolicy;
 import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectBudget;
 import main.ngooperation.mamun_2430986.Model.NonUser.ReviewNote;
+import main.ngooperation.mamun_2430986.Model.NonUser.RiskAlert;
 import main.ngooperation.mamun_2430986.Utility.FileReadWrite;
 
 import java.io.Serializable;
@@ -23,6 +24,7 @@ public class ExecutiveDirector extends Employee implements Serializable {
     private static final String DONOR_REPORTS_FILE = "DonorReports.bin";
     private static final String AUDIT_SUMMARIES_FILE = "AuditSummaries.bin";
     private static final String POLICIES_FILE = "OrganizationPolicies.bin";
+    private static final String RISK_ALERTS_FILE = "RiskAlerts.bin";
 
     public ExecutiveDirector(int userId, String password, String userName, String phone, String role, String mail, int employeeId, LocalDate joiningDate, String designation, Float salary, String shift) {
         super(userId, password, userName, phone, role, mail, employeeId, joiningDate, designation, salary, shift);
@@ -140,5 +142,9 @@ public class ExecutiveDirector extends Employee implements Serializable {
             }
         }
         return false;
+    }
+
+    public static ObservableList<RiskAlert> loadAllRiskAlerts() {
+        return FileReadWrite.loadData(RiskAlert.class, RISK_ALERTS_FILE);
     }
 }

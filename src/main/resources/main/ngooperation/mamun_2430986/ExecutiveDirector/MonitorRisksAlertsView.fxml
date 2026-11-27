@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="612.0" prefWidth="888.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.mamun_2430986.Controller.ExecutiveDirector.MonitorRisksAlertsController">
+   <children>
+      <Text fx:id="pageTitleText" layoutX="27.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MONITOR MAJOR RISKS AND EXECUTIVE ALERTS">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <Text fx:id="pageSubtitleText" layoutX="27.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monitor major risks and escalated alerts by severity and record review notes.">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Line endX="786.0" layoutX="101.0" layoutY="103.0" startX="-100.0" />
+      <Line endX="100.0" endY="353.0" layoutX="144.0" layoutY="258.0" startX="100.0" startY="-154.5" />
+      <Button layoutX="25.0" layoutY="126.0" mnemonicParsing="false" onAction="#reviewKPIsOnAction" prefHeight="46.0" prefWidth="194.0" text="Review Organization-Wide KPIs" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="183.0" mnemonicParsing="false" onAction="#approveHighValueProjectsOnAction" prefHeight="46.0" prefWidth="194.0" text="Approve High-Value Projects" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="243.0" mnemonicParsing="false" onAction="#authorizeGrantsOnAction" prefHeight="46.0" prefWidth="194.0" text="Authorize Strategic Grant Applications" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="302.0" mnemonicParsing="false" onAction="#approveDonorReportsOnAction" prefHeight="46.0" prefWidth="194.0" text="Review and Approve Donor Reports" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="360.0" mnemonicParsing="false" onAction="#reviewAuditSummariesOnAction" prefHeight="46.0" prefWidth="194.0" text="Review Organizational Audit and Compliance Summaries" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="421.0" mnemonicParsing="false" onAction="#approvePoliciesOnAction" prefHeight="46.0" prefWidth="194.0" text="Approve Organization-Wide Policies" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="482.0" mnemonicParsing="false" onAction="#monitorRisksAlertsOnAction" prefHeight="46.0" prefWidth="194.0" text="Monitor Major Risks and Executive Alerts" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="541.0" mnemonicParsing="false" onAction="#reviewFundingPositionOnAction" prefHeight="46.0" prefWidth="194.0" text="Review Funding and Sustainability Position" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="272.0" layoutY="134.0" text="Severity:" />
+      <ComboBox fx:id="severityCB" layoutX="335.0" layoutY="130.0" prefWidth="150.0" promptText="Select Severity" />
+      <Button layoutX="505.0" layoutY="130.0" mnemonicParsing="false" onAction="#filterButtonOnAction" text="Filter" />
+      <TableView fx:id="riskTV" layoutX="272.0" layoutY="176.0" prefHeight="250.0" prefWidth="585.0">
+        <columns>
+          <TableColumn fx:id="alertIdTC" prefWidth="70.0" text="Alert ID" />
+          <TableColumn fx:id="projectIdTC" prefWidth="75.0" text="Project" />
+          <TableColumn fx:id="descriptionTC" prefWidth="185.0" text="Description" />
+          <TableColumn fx:id="severityTC" prefWidth="75.0" text="Severity" />
+          <TableColumn fx:id="raisedByTC" prefWidth="100.0" text="Raised By" />
+          <TableColumn fx:id="statusTC" prefWidth="78.0" text="Status" />
+        </columns>
+      </TableView>
+      <Label layoutX="272.0" layoutY="455.0" text="Select Alert ID:" />
+      <ComboBox fx:id="alertIdCB" layoutX="365.0" layoutY="451.0" prefWidth="140.0" />
+      <Label layoutX="272.0" layoutY="498.0" text="Review Note:" />
+      <TextField fx:id="reviewNoteTF" layoutX="365.0" layoutY="494.0" prefHeight="25.0" prefWidth="350.0" />
+      <Button layoutX="512.0" layoutY="541.0" mnemonicParsing="false" onAction="#saveReviewOnAction" text="Save Review" />
+   </children>
+</AnchorPane>
