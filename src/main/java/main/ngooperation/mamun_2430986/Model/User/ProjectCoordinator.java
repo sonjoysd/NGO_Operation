@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 import main.ngooperation.Employee;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectMilestone;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectSchedule;
+import main.ngooperation.mamun_2430986.Model.NonUser.ResourceRequest;
 import main.ngooperation.mamun_2430986.Model.NonUser.ReviewNote;
 import main.ngooperation.mamun_2430986.Model.NonUser.StaffAssignment;
 import main.ngooperation.mamun_2430986.Utility.FileReadWrite;
@@ -19,6 +20,7 @@ public class ProjectCoordinator extends Employee implements Serializable {
     private static final String NGO_APPLICATIONS_FILE = "NGOApplication.bin";
     private static final String REVIEW_NOTES_FILE = "ReviewNotes.bin";
     private static final String MILESTONES_FILE = "ProjectMilestones.bin";
+    private static final String RESOURCE_REQUESTS_FILE = "ResourceRequests.bin";
 
     public ProjectCoordinator(int userId, String password, String userName, String phone, String role, String mail, int employeeId, LocalDate joiningDate, String designation, Float salary, String shift) {
         super(userId, password, userName, phone, role, mail, employeeId, joiningDate, designation, salary, shift);
@@ -87,5 +89,25 @@ public class ProjectCoordinator extends Employee implements Serializable {
         String noteId = "RN-" + System.currentTimeMillis();
         ReviewNote note = new ReviewNote(noteId, targetId, reviewerRole, noteText, LocalDate.now());
         FileReadWrite.append(note, REVIEW_NOTES_FILE);
+    }
+
+    public static ObservableList<ResourceRequest> loadAllResourceRequests() {
+        return FileReadWrite.loadData(ResourceRequest.class, RESOURCE_REQUESTS_FILE);
+    }
+
+    public static boolean addResourceRequest(ResourceRequest request) {
+        ObservableList<ResourceRequest> all = FileReadWrite.loadData(ResourceRequest.class, RESOURCE_REQUESTS_FILE);
+        for (ResourceRequest r : all) {
+            if (r.getRequestId().equals(request.getRequestId())) {
+                return false;
+            }
+            if (r.getProjectId().equals(request.getProjectId())
+                    && r.getItem().equals(request.getItem())
+                    && r.getNeededDate().equals(request.getNeededDate())) {
+                return false;
+            }
+        }
+        FileReadWrite.append(request, RESOURCE_REQUESTS_FILE);
+        return true;
     }
 }

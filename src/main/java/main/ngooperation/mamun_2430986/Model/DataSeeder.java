@@ -11,6 +11,7 @@ import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectBudget;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectMilestone;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectSchedule;
+import main.ngooperation.mamun_2430986.Model.NonUser.ResourceRequest;
 import main.ngooperation.mamun_2430986.Model.NonUser.RiskAlert;
 import main.ngooperation.mamun_2430986.Model.NonUser.StaffAssignment;
 import main.ngooperation.mamun_2430986.Utility.FileReadWrite;
@@ -103,6 +104,12 @@ public class DataSeeder {
         milestones.add(new ProjectMilestone("MS-404", "PRJ-04", "Women Training Cohort 1", "On Track", LocalDate.of(2026, 4, 30), 60));
         FileReadWrite.saveData(milestones, "ProjectMilestones.bin");
 
-        System.out.println("Seeded Executive Director, ProjectSchedules.bin, StaffAssignments.bin, NGOApplication.bin, and ProjectMilestones.bin files.");
+        ObservableList<ResourceRequest> resourceRequests = FXCollections.observableArrayList();
+        resourceRequests.add(new ResourceRequest("RES-501", "PRJ-01", "School Notebooks", "Kamal Hasan", "Requested", 500, LocalDate.of(2026, 4, 10)));
+        resourceRequests.add(new ResourceRequest("RES-502", "PRJ-02", "Medical First-Aid Kits", "Nusrat Jahan", "Forwarded to PM", 120, LocalDate.of(2026, 4, 14)));
+        resourceRequests.add(new ResourceRequest("RES-503", "PRJ-03", "Tarpaulin Sheets", "Tariqul Islam", "Approved", 200, LocalDate.of(2026, 4, 18)));
+        FileReadWrite.saveData(resourceRequests, "ResourceRequests.bin");
+
+        System.out.println("Seeded Executive Director, ProjectSchedules.bin, StaffAssignments.bin, NGOApplication.bin, ProjectMilestones.bin, and ResourceRequests.bin files.");
     }
 }
