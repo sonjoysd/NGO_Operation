@@ -1,6 +1,6 @@
 package main.ngooperation.mamun_2430986.Controller.ExecutiveDirector;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -120,7 +120,7 @@ public class AuthorizeGrantApplicationsController {
     }
 
     private void refresh() {
-        ObservableList<GrantApplication> list = ExecutiveDirector.loadAllGrants();
+        ArrayList<GrantApplication> list = ExecutiveDirector.loadAllGrants();
         grantTV.getItems().clear();
         grantTV.getItems().addAll(list);
 

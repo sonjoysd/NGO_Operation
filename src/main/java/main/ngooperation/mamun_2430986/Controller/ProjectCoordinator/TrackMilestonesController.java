@@ -1,6 +1,6 @@
 package main.ngooperation.mamun_2430986.Controller.ProjectCoordinator;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -111,7 +111,7 @@ public class TrackMilestonesController {
         completionPercentTC.setCellValueFactory(new PropertyValueFactory<>("completionPercent"));
         statusTC.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        ObservableList<ProjectMilestone> all = ProjectCoordinator.loadAllMilestones();
+        ArrayList<ProjectMilestone> all = ProjectCoordinator.loadAllMilestones();
 
         projectCB.getItems().clear();
         projectCB.getItems().add("All");
@@ -133,7 +133,7 @@ public class TrackMilestonesController {
 
     @FXML
     public void filterButtonOnAction(ActionEvent actionEvent) {
-        ObservableList<ProjectMilestone> all = ProjectCoordinator.loadAllMilestones();
+        ArrayList<ProjectMilestone> all = ProjectCoordinator.loadAllMilestones();
         String selectedProject = projectCB.getValue();
 
         milestoneTV.getItems().clear();

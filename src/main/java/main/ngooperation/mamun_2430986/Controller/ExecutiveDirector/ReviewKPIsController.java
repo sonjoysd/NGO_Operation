@@ -1,6 +1,6 @@
 package main.ngooperation.mamun_2430986.Controller.ExecutiveDirector;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -115,7 +115,7 @@ public class ReviewKPIsController {
         targetTC.setCellValueFactory(new PropertyValueFactory<>("target"));
         actualTC.setCellValueFactory(new PropertyValueFactory<>("actual"));
 
-        ObservableList<PerformanceIndicator> all = ExecutiveDirector.loadAllKPIs();
+        ArrayList<PerformanceIndicator> all = ExecutiveDirector.loadAllKPIs();
 
         periodCB.getItems().clear();
         periodCB.getItems().add("All");
@@ -137,7 +137,7 @@ public class ReviewKPIsController {
 
     @FXML
     public void filterButtonOnAction(ActionEvent actionEvent) {
-        ObservableList<PerformanceIndicator> all = ExecutiveDirector.loadAllKPIs();
+        ArrayList<PerformanceIndicator> all = ExecutiveDirector.loadAllKPIs();
         String selectedPeriod = periodCB.getValue();
 
         kpiTV.getItems().clear();

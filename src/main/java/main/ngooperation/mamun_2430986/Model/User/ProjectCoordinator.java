@@ -1,6 +1,5 @@
 package main.ngooperation.mamun_2430986.Model.User;
 
-import javafx.collections.ObservableList;
 import main.ngooperation.Employee;
 import main.ngooperation.mamun_2430986.Model.NonUser.CoordinationMeeting;
 import main.ngooperation.mamun_2430986.Model.NonUser.OperationalIssue;
@@ -16,6 +15,7 @@ import main.ngooperation.sonjoy_2411704.model_class.NGOApplication;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class ProjectCoordinator extends Employee implements Serializable {
 
@@ -34,12 +34,16 @@ public class ProjectCoordinator extends Employee implements Serializable {
         super(userId, password, userName, phone, role, mail, employeeId, joiningDate, designation, salary, shift);
     }
 
-    public static ObservableList<ProjectSchedule> loadAllSchedules() {
-        return FileReadWrite.loadData(ProjectSchedule.class, SCHEDULES_FILE);
+    public static ArrayList<ProjectSchedule> loadAllSchedules() {
+        ArrayList<ProjectSchedule> list = new ArrayList<ProjectSchedule>();
+        for (Object obj : FileReadWrite.loadData(SCHEDULES_FILE)) {
+            list.add((ProjectSchedule) obj);
+        }
+        return list;
     }
 
     public static boolean addSchedule(ProjectSchedule schedule) {
-        ObservableList<ProjectSchedule> all = FileReadWrite.loadData(ProjectSchedule.class, SCHEDULES_FILE);
+        ArrayList<ProjectSchedule> all = loadAllSchedules();
         for (ProjectSchedule s : all) {
             if (s.getScheduleId().equals(schedule.getScheduleId())) {
                 return false;
@@ -52,12 +56,16 @@ public class ProjectCoordinator extends Employee implements Serializable {
         return true;
     }
 
-    public static ObservableList<StaffAssignment> loadAllAssignments() {
-        return FileReadWrite.loadData(StaffAssignment.class, ASSIGNMENTS_FILE);
+    public static ArrayList<StaffAssignment> loadAllAssignments() {
+        ArrayList<StaffAssignment> list = new ArrayList<StaffAssignment>();
+        for (Object obj : FileReadWrite.loadData(ASSIGNMENTS_FILE)) {
+            list.add((StaffAssignment) obj);
+        }
+        return list;
     }
 
     public static boolean addAssignment(StaffAssignment assignment) {
-        ObservableList<StaffAssignment> all = FileReadWrite.loadData(StaffAssignment.class, ASSIGNMENTS_FILE);
+        ArrayList<StaffAssignment> all = loadAllAssignments();
         for (StaffAssignment a : all) {
             if (a.getAssignmentId().equals(assignment.getAssignmentId())) {
                 return false;
@@ -70,16 +78,26 @@ public class ProjectCoordinator extends Employee implements Serializable {
         return true;
     }
 
-    public static ObservableList<NGOApplication> loadAllBeneficiaryRequests() {
-        return FileReadWrite.loadData(NGOApplication.class, NGO_APPLICATIONS_FILE);
+    public static ArrayList<NGOApplication> loadAllBeneficiaryRequests() {
+        ArrayList<NGOApplication> list = new ArrayList<NGOApplication>();
+        for (Object obj : FileReadWrite.loadData(NGO_APPLICATIONS_FILE)) {
+            list.add((NGOApplication) obj);
+        }
+        return list;
     }
 
     public static boolean routeServiceRequest(Integer applicationId, String team, String noteText) {
-        ObservableList<NGOApplication> all = FileReadWrite.loadData(NGOApplication.class, NGO_APPLICATIONS_FILE);
+        ArrayList<NGOApplication> all = loadAllBeneficiaryRequests();
         for (int i = 0; i < all.size(); i++) {
             if (all.get(i).getApplicationID().equals(applicationId)) {
                 all.get(i).setStatus("Routed to " + team);
-                FileReadWrite.saveData(all, NGO_APPLICATIONS_FILE);
+
+                ArrayList<Object> raw = new ArrayList<Object>();
+                for (NGOApplication app : all) {
+                    raw.add(app);
+                }
+                FileReadWrite.saveData(raw, NGO_APPLICATIONS_FILE);
+
                 String noteId = "RN-" + System.currentTimeMillis();
                 ReviewNote note = new ReviewNote(noteId, "APP-" + applicationId, "Project Coordinator", noteText, LocalDate.now());
                 FileReadWrite.append(note, REVIEW_NOTES_FILE);
@@ -89,8 +107,12 @@ public class ProjectCoordinator extends Employee implements Serializable {
         return false;
     }
 
-    public static ObservableList<ProjectMilestone> loadAllMilestones() {
-        return FileReadWrite.loadData(ProjectMilestone.class, MILESTONES_FILE);
+    public static ArrayList<ProjectMilestone> loadAllMilestones() {
+        ArrayList<ProjectMilestone> list = new ArrayList<ProjectMilestone>();
+        for (Object obj : FileReadWrite.loadData(MILESTONES_FILE)) {
+            list.add((ProjectMilestone) obj);
+        }
+        return list;
     }
 
     public static void saveReviewNote(String targetId, String reviewerRole, String noteText) {
@@ -99,12 +121,16 @@ public class ProjectCoordinator extends Employee implements Serializable {
         FileReadWrite.append(note, REVIEW_NOTES_FILE);
     }
 
-    public static ObservableList<ResourceRequest> loadAllResourceRequests() {
-        return FileReadWrite.loadData(ResourceRequest.class, RESOURCE_REQUESTS_FILE);
+    public static ArrayList<ResourceRequest> loadAllResourceRequests() {
+        ArrayList<ResourceRequest> list = new ArrayList<ResourceRequest>();
+        for (Object obj : FileReadWrite.loadData(RESOURCE_REQUESTS_FILE)) {
+            list.add((ResourceRequest) obj);
+        }
+        return list;
     }
 
     public static boolean addResourceRequest(ResourceRequest request) {
-        ObservableList<ResourceRequest> all = FileReadWrite.loadData(ResourceRequest.class, RESOURCE_REQUESTS_FILE);
+        ArrayList<ResourceRequest> all = loadAllResourceRequests();
         for (ResourceRequest r : all) {
             if (r.getRequestId().equals(request.getRequestId())) {
                 return false;
@@ -119,12 +145,16 @@ public class ProjectCoordinator extends Employee implements Serializable {
         return true;
     }
 
-    public static ObservableList<CoordinationMeeting> loadAllMeetings() {
-        return FileReadWrite.loadData(CoordinationMeeting.class, MEETINGS_FILE);
+    public static ArrayList<CoordinationMeeting> loadAllMeetings() {
+        ArrayList<CoordinationMeeting> list = new ArrayList<CoordinationMeeting>();
+        for (Object obj : FileReadWrite.loadData(MEETINGS_FILE)) {
+            list.add((CoordinationMeeting) obj);
+        }
+        return list;
     }
 
     public static boolean addMeeting(CoordinationMeeting meeting) {
-        ObservableList<CoordinationMeeting> all = FileReadWrite.loadData(CoordinationMeeting.class, MEETINGS_FILE);
+        ArrayList<CoordinationMeeting> all = loadAllMeetings();
         for (CoordinationMeeting m : all) {
             if (m.getMeetingId().equals(meeting.getMeetingId())) {
                 return false;
@@ -137,14 +167,18 @@ public class ProjectCoordinator extends Employee implements Serializable {
         return true;
     }
 
-    public static ObservableList<ProjectProgressReport> loadAllProgressReports() {
-        return FileReadWrite.loadData(ProjectProgressReport.class, PROGRESS_REPORTS_FILE);
+    public static ArrayList<ProjectProgressReport> loadAllProgressReports() {
+        ArrayList<ProjectProgressReport> list = new ArrayList<ProjectProgressReport>();
+        for (Object obj : FileReadWrite.loadData(PROGRESS_REPORTS_FILE)) {
+            list.add((ProjectProgressReport) obj);
+        }
+        return list;
     }
 
     public static String compileAndSaveReport(String projectId, String period) {
-        ObservableList<ProjectSchedule> schedules = FileReadWrite.loadData(ProjectSchedule.class, SCHEDULES_FILE);
-        ObservableList<ProjectMilestone> milestones = FileReadWrite.loadData(ProjectMilestone.class, MILESTONES_FILE);
-        ObservableList<ResourceRequest> resources = FileReadWrite.loadData(ResourceRequest.class, RESOURCE_REQUESTS_FILE);
+        ArrayList<ProjectSchedule> schedules = loadAllSchedules();
+        ArrayList<ProjectMilestone> milestones = loadAllMilestones();
+        ArrayList<ResourceRequest> resources = loadAllResourceRequests();
 
         int scheduleCount = 0;
         for (ProjectSchedule s : schedules) {
@@ -186,18 +220,27 @@ public class ProjectCoordinator extends Employee implements Serializable {
                 + "Resource Requests: " + resourceCount + "\n";
     }
 
-    public static ObservableList<OperationalIssue> loadAllIssues() {
-        return FileReadWrite.loadData(OperationalIssue.class, ISSUES_FILE);
+    public static ArrayList<OperationalIssue> loadAllIssues() {
+        ArrayList<OperationalIssue> list = new ArrayList<OperationalIssue>();
+        for (Object obj : FileReadWrite.loadData(ISSUES_FILE)) {
+            list.add((OperationalIssue) obj);
+        }
+        return list;
     }
 
     public static boolean escalateIssueToDirector(String issueId, String severity, String note) {
-        ObservableList<OperationalIssue> all = FileReadWrite.loadData(OperationalIssue.class, ISSUES_FILE);
+        ArrayList<OperationalIssue> all = loadAllIssues();
         for (int i = 0; i < all.size(); i++) {
             OperationalIssue issue = all.get(i);
             if (issue.getIssueId().equals(issueId)) {
                 issue.setSeverity(severity);
                 issue.setStatus("Escalated");
-                FileReadWrite.saveData(all, ISSUES_FILE);
+
+                ArrayList<Object> raw = new ArrayList<Object>();
+                for (OperationalIssue item : all) {
+                    raw.add(item);
+                }
+                FileReadWrite.saveData(raw, ISSUES_FILE);
 
                 String alertId = "ALT-" + System.currentTimeMillis();
                 RiskAlert alert = new RiskAlert(

@@ -1,6 +1,6 @@
 package main.ngooperation.mamun_2430986.Controller.ExecutiveDirector;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -118,7 +118,7 @@ public class MonitorRisksAlertsController {
         severityCB.getItems().add("Critical");
         severityCB.setValue("All");
 
-        ObservableList<RiskAlert> all = ExecutiveDirector.loadAllRiskAlerts();
+        ArrayList<RiskAlert> all = ExecutiveDirector.loadAllRiskAlerts();
         riskTV.getItems().clear();
         riskTV.getItems().addAll(all);
 
@@ -130,7 +130,7 @@ public class MonitorRisksAlertsController {
 
     @FXML
     public void filterButtonOnAction(ActionEvent actionEvent) {
-        ObservableList<RiskAlert> all = ExecutiveDirector.loadAllRiskAlerts();
+        ArrayList<RiskAlert> all = ExecutiveDirector.loadAllRiskAlerts();
         String selectedSeverity = severityCB.getValue();
 
         riskTV.getItems().clear();

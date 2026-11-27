@@ -1,6 +1,6 @@
 package main.ngooperation.mamun_2430986.Controller.ProjectCoordinator;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -127,7 +127,7 @@ public class CoordinateProcurementController {
     }
 
     private void refresh() {
-        ObservableList<ResourceRequest> list = ProjectCoordinator.loadAllResourceRequests();
+        ArrayList<ResourceRequest> list = ProjectCoordinator.loadAllResourceRequests();
         requestTV.getItems().clear();
         requestTV.getItems().addAll(list);
     }
