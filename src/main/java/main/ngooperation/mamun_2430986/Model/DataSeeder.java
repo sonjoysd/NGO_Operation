@@ -2,6 +2,7 @@ package main.ngooperation.mamun_2430986.Model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import main.ngooperation.mamun_2430986.Model.NonUser.DonorReport;
 import main.ngooperation.mamun_2430986.Model.NonUser.GrantApplication;
 import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectBudget;
@@ -33,6 +34,13 @@ public class DataSeeder {
         grants.add(new GrantApplication("GR-304", "BRAC Foundation", "Empowerment", "Approved", "Authorized", 90000.0, LocalDate.of(2026, 3, 22)));
         FileReadWrite.saveData(grants, "GrantApplications.bin");
 
-        System.out.println("Seeded PerformanceIndicators.bin, ProjectBudgets.bin, and GrantApplications.bin");
+        ObservableList<DonorReport> donorReports = FXCollections.observableArrayList();
+        donorReports.add(new DonorReport("DR-401", "UNICEF", "2026-Q1", "480 students supported in Q1", "Pending", ""));
+        donorReports.add(new DonorReport("DR-402", "WHO", "2026-Q1", "1250 clinic visits completed", "Pending", ""));
+        donorReports.add(new DonorReport("DR-403", "UNDP", "2026-Q2", "68 shelters built out of 80", "Pending", ""));
+        donorReports.add(new DonorReport("DR-404", "BRAC Foundation", "2026-Q2", "310 women trained in skills", "Approved", "Verified"));
+        FileReadWrite.saveData(donorReports, "DonorReports.bin");
+
+        System.out.println("Seeded PerformanceIndicators.bin, ProjectBudgets.bin, GrantApplications.bin, and DonorReports.bin");
     }
 }
