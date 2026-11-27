@@ -2,6 +2,7 @@ package main.ngooperation.mamun_2430986.Model.User;
 
 import javafx.collections.ObservableList;
 import main.ngooperation.Employee;
+import main.ngooperation.mamun_2430986.Model.NonUser.CoordinationMeeting;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectMilestone;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectSchedule;
 import main.ngooperation.mamun_2430986.Model.NonUser.ResourceRequest;
@@ -21,6 +22,7 @@ public class ProjectCoordinator extends Employee implements Serializable {
     private static final String REVIEW_NOTES_FILE = "ReviewNotes.bin";
     private static final String MILESTONES_FILE = "ProjectMilestones.bin";
     private static final String RESOURCE_REQUESTS_FILE = "ResourceRequests.bin";
+    private static final String MEETINGS_FILE = "CoordinationMeetings.bin";
 
     public ProjectCoordinator(int userId, String password, String userName, String phone, String role, String mail, int employeeId, LocalDate joiningDate, String designation, Float salary, String shift) {
         super(userId, password, userName, phone, role, mail, employeeId, joiningDate, designation, salary, shift);
@@ -108,6 +110,24 @@ public class ProjectCoordinator extends Employee implements Serializable {
             }
         }
         FileReadWrite.append(request, RESOURCE_REQUESTS_FILE);
+        return true;
+    }
+
+    public static ObservableList<CoordinationMeeting> loadAllMeetings() {
+        return FileReadWrite.loadData(CoordinationMeeting.class, MEETINGS_FILE);
+    }
+
+    public static boolean addMeeting(CoordinationMeeting meeting) {
+        ObservableList<CoordinationMeeting> all = FileReadWrite.loadData(CoordinationMeeting.class, MEETINGS_FILE);
+        for (CoordinationMeeting m : all) {
+            if (m.getMeetingId().equals(meeting.getMeetingId())) {
+                return false;
+            }
+            if (m.getLocation().equals(meeting.getLocation()) && m.getMeetingDate().equals(meeting.getMeetingDate())) {
+                return false;
+            }
+        }
+        FileReadWrite.append(meeting, MEETINGS_FILE);
         return true;
     }
 }

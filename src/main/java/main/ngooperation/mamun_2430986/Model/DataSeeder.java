@@ -3,6 +3,7 @@ package main.ngooperation.mamun_2430986.Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import main.ngooperation.mamun_2430986.Model.NonUser.AuditSummary;
+import main.ngooperation.mamun_2430986.Model.NonUser.CoordinationMeeting;
 import main.ngooperation.mamun_2430986.Model.NonUser.DonorReport;
 import main.ngooperation.mamun_2430986.Model.NonUser.FundingPosition;
 import main.ngooperation.mamun_2430986.Model.NonUser.GrantApplication;
@@ -110,6 +111,12 @@ public class DataSeeder {
         resourceRequests.add(new ResourceRequest("RES-503", "PRJ-03", "Tarpaulin Sheets", "Tariqul Islam", "Approved", 200, LocalDate.of(2026, 4, 18)));
         FileReadWrite.saveData(resourceRequests, "ResourceRequests.bin");
 
-        System.out.println("Seeded Executive Director, ProjectSchedules.bin, StaffAssignments.bin, NGOApplication.bin, ProjectMilestones.bin, and ResourceRequests.bin files.");
+        ObservableList<CoordinationMeeting> meetings = FXCollections.observableArrayList();
+        meetings.add(new CoordinationMeeting("MTG-601", "PRJ-01", "Q2 Kickoff Alignment", "Room A", "Team Alpha", "Scheduled", LocalDate.of(2026, 4, 3)));
+        meetings.add(new CoordinationMeeting("MTG-602", "PRJ-02", "Field Clinic Logistics", "Room B", "Team Beta", "Completed", LocalDate.of(2026, 4, 6)));
+        meetings.add(new CoordinationMeeting("MTG-603", "PRJ-03", "Shelter Material Review", "Sylhet Hub", "Team Gamma", "Scheduled", LocalDate.of(2026, 4, 11)));
+        FileReadWrite.saveData(meetings, "CoordinationMeetings.bin");
+
+        System.out.println("Seeded Executive Director, ProjectSchedules.bin, StaffAssignments.bin, NGOApplication.bin, ProjectMilestones.bin, ResourceRequests.bin, and CoordinationMeetings.bin files.");
     }
 }
