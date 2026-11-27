@@ -3,8 +3,10 @@ package main.ngooperation.shafial_2411827.controller.field_officer;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import main.ngooperation.shafial_2411827.FieldOfficer;
+import main.ngooperation.shafial_2411827.RegisterNewBeneficiary;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class registerNewBeneficiaryController
 {
@@ -27,14 +29,27 @@ public class registerNewBeneficiaryController
     @javafx.fxml.FXML
     private TableColumn ServicesAreaCL;
     @javafx.fxml.FXML
-    private TableView tableView;
+    private TableView<RegisterNewBeneficiary> tableView;
+
+
+    FieldOfficer user1 = new FieldOfficer(1, "354grg", "xx", "343", "gfroigj", "ff", 13, LocalDate.now(), "dfd", 3.5f, "Day");
 
     @javafx.fxml.FXML
     public void initialize() {
+
+
     }
 
     @javafx.fxml.FXML
     public void ViewDetailsOnAction(ActionEvent actionEvent) {
+        ArrayList<Object> readObjList = user1.readRegisterNewBeneficiary();
+
+        for (Object obj: readObjList){
+            if(obj instanceof RegisterNewBeneficiary reg){
+                tableView.getItems().add(reg);
+            }
+        }
+
     }
 
     @javafx.fxml.FXML
@@ -46,7 +61,7 @@ public class registerNewBeneficiaryController
         //get, validate, verify
 
         // int userId, String password, String userName, String phone, String role, String mail, int employeeId, LocalDate joiningDate, String designation, Float salary, String shift
-        FieldOfficer user1 = new FieldOfficer(1, "354grg", "xx", "343", "gfroigj", "ff", 13, LocalDate.now(), "dfd", 3.5f, "Day");
+
 
         boolean b = user1.registerNewBeneficiary(FullNameTF.getText(), ContactTF.getText(), CommunityTF.getText(), AdressTF.getText());
         Alert a = new Alert(Alert.AlertType.INFORMATION);
