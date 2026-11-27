@@ -1,8 +1,13 @@
 package main.ngooperation.shafial_2411827.controller.field_officer;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import main.ngooperation.HelloApplication;
 import main.ngooperation.shafial_2411827.FieldOfficer;
 import main.ngooperation.shafial_2411827.RegisterNewBeneficiary;
 
@@ -57,6 +62,17 @@ public class registerNewBeneficiaryController
 
     @javafx.fxml.FXML
     public void BackDashbordOnAction(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/main/ngooperation/shafial_2411827/field_officer/mainDashboardView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setTitle("Dashboard");
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @javafx.fxml.FXML
