@@ -13,8 +13,8 @@ module NGO.Operation {
     opens main.ngooperation.sonjoy_2411704.model_class to javafx.base;
     opens main.ngooperation.mamun_2430986.Controller.ExecutiveDirector to javafx.fxml;
     opens main.ngooperation.mamun_2430986.Controller.ProjectCoordinator to javafx.fxml;
-    // Enable in Step 3 once Model classes exist:
-    // opens main.ngooperation.mamun_2430986.Model to javafx.base;
+    opens main.ngooperation.mamun_2430986.Model.User to javafx.base;
+    opens main.ngooperation.mamun_2430986.Model.NonUser to javafx.base;
 
     exports main.ngooperation;
 }

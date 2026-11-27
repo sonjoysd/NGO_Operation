@@ -61,12 +61,19 @@ public class FileReadWrite {
     }
 
     public static <T> void append(T object, String fileName) {
-        File file = new File(fileName);
-        boolean appendRequiresSkip = file.exists() && file.length() > 0;
-        try (ObjectOutputStream oos = appendRequiresSkip
-                ? new AppendableObjectOutputStream(new FileOutputStream(fileName, true))
-                : new ObjectOutputStream(new FileOutputStream(fileName, true))) {
+        try {
+            File file = new File(fileName);
+            boolean appendRequiresSkip = file.exists() && file.length() > 0;
+            ObjectOutputStream oos;
+
+            if (appendRequiresSkip) {
+                oos = new AppendableObjectOutputStream(new FileOutputStream(fileName, true));
+            } else {
+                oos = new ObjectOutputStream(new FileOutputStream(fileName, true));
+            }
+
             oos.writeObject(object);
+            oos.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
