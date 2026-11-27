@@ -10,6 +10,11 @@ module NGO.Operation {
     opens main.ngooperation.shafial_2411827.controller.auditor to javafx.fxml;
     opens main.ngooperation.sonjoy_2411704.contoller_class.account_officer to javafx.fxml;
     opens main.ngooperation.sonjoy_2411704.contoller_class.beneficiary to javafx.fxml;
+    opens main.ngooperation.sonjoy_2411704.model_class to javafx.base;
+    opens main.ngooperation.mamun_2430986.Controller.ExecutiveDirector to javafx.fxml;
+    opens main.ngooperation.mamun_2430986.Controller.ProjectCoordinator to javafx.fxml;
+    opens main.ngooperation.mamun_2430986.Model.User to javafx.base;
+    opens main.ngooperation.mamun_2430986.Model.NonUser to javafx.base;
 
     exports main.ngooperation;
 }

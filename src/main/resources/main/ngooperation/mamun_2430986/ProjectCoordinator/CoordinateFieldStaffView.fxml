@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="612.0" prefWidth="888.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.mamun_2430986.Controller.ProjectCoordinator.CoordinateFieldStaffController">
+   <children>
+      <Text fx:id="pageTitleText" layoutX="35.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COORDINATE FIELD STAFF ASSIGNMENTS">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <Text fx:id="pageSubtitleText" layoutX="35.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assign field staff to project tasks and check for scheduling conflicts.">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Line endX="786.0" layoutX="101.0" layoutY="103.0" startX="-100.0" />
+      <Line endX="100.0" endY="353.0" layoutX="144.0" layoutY="258.0" startX="100.0" startY="-154.5" />
+      <Button layoutX="25.0" layoutY="126.0" mnemonicParsing="false" onAction="#prepareSchedulesOnAction" prefHeight="46.0" prefWidth="194.0" text="Prepare Project Activity Schedules" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="183.0" mnemonicParsing="false" onAction="#coordinateStaffOnAction" prefHeight="46.0" prefWidth="194.0" text="Coordinate Field Staff Assignments" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="243.0" mnemonicParsing="false" onAction="#reviewServiceRequestsOnAction" prefHeight="46.0" prefWidth="194.0" text="Review Beneficiary Service Requests" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="302.0" mnemonicParsing="false" onAction="#trackMilestonesOnAction" prefHeight="46.0" prefWidth="194.0" text="Track Project Implementation Milestones" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="360.0" mnemonicParsing="false" onAction="#coordinateProcurementOnAction" prefHeight="46.0" prefWidth="194.0" text="Coordinate Procurement and Resource Requests" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="421.0" mnemonicParsing="false" onAction="#organizeMeetingsOnAction" prefHeight="46.0" prefWidth="194.0" text="Organize Project Coordination Meetings" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="482.0" mnemonicParsing="false" onAction="#compileProgressOnAction" prefHeight="46.0" prefWidth="194.0" text="Compile Project Progress Information" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="541.0" mnemonicParsing="false" onAction="#escalateIssuesOnAction" prefHeight="46.0" prefWidth="194.0" text="Escalate Project Delays and Operational Issues" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="272.0" layoutY="130.0" text="Project ID:" />
+      <TextField fx:id="projectIdTF" layoutX="355.0" layoutY="126.0" prefWidth="140.0" />
+      <Label layoutX="525.0" layoutY="130.0" text="Staff Name:" />
+      <TextField fx:id="staffNameTF" layoutX="600.0" layoutY="126.0" prefWidth="245.0" />
+      <Label layoutX="272.0" layoutY="170.0" text="Role / Task:" />
+      <TextField fx:id="roleTaskTF" layoutX="355.0" layoutY="166.0" prefWidth="140.0" />
+      <Label layoutX="525.0" layoutY="170.0" text="Location:" />
+      <TextField fx:id="locationTF" layoutX="600.0" layoutY="166.0" prefWidth="245.0" />
+      <Label layoutX="272.0" layoutY="210.0" text="Date:" />
+      <DatePicker fx:id="assignedDateDP" layoutX="355.0" layoutY="206.0" prefWidth="140.0" />
+      <Label layoutX="525.0" layoutY="210.0" text="Status:" />
+      <ComboBox fx:id="statusCB" layoutX="600.0" layoutY="206.0" prefWidth="150.0" />
+      <Button layoutX="515.0" layoutY="250.0" mnemonicParsing="false" onAction="#saveAssignmentOnAction" text="Save Assignment" />
+      <TableView fx:id="assignmentTV" layoutX="272.0" layoutY="295.0" prefHeight="280.0" prefWidth="585.0">
+        <columns>
+          <TableColumn fx:id="assignmentIdTC" prefWidth="85.0" text="Assign ID" />
+          <TableColumn fx:id="projectIdTC" prefWidth="75.0" text="Project" />
+          <TableColumn fx:id="staffNameTC" prefWidth="120.0" text="Staff Name" />
+          <TableColumn fx:id="roleTaskTC" prefWidth="125.0" text="Role / Task" />
+          <TableColumn fx:id="assignedDateTC" prefWidth="95.0" text="Date" />
+          <TableColumn fx:id="statusTC" prefWidth="83.0" text="Status" />
+        </columns>
+      </TableView>
+      <Button layoutX="787.0" layoutY="30.0" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="46.0" prefWidth="70.0" text="Log Out" />
+   </children>
+</AnchorPane>

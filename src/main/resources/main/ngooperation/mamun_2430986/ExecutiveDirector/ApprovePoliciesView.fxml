@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="612.0" prefWidth="888.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.mamun_2430986.Controller.ExecutiveDirector.ApprovePoliciesController">
+   <children>
+      <Text fx:id="pageTitleText" layoutX="27.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="APPROVE ORGANIZATION-WIDE POLICIES">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <Text fx:id="pageSubtitleText" layoutX="27.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Review policy drafts and approve, reject, or return them for correction.">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Line endX="786.0" layoutX="101.0" layoutY="103.0" startX="-100.0" />
+      <Line endX="100.0" endY="353.0" layoutX="144.0" layoutY="258.0" startX="100.0" startY="-154.5" />
+      <Button layoutX="25.0" layoutY="126.0" mnemonicParsing="false" onAction="#reviewKPIsOnAction" prefHeight="46.0" prefWidth="194.0" text="Review Organization-Wide KPIs" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="183.0" mnemonicParsing="false" onAction="#approveHighValueProjectsOnAction" prefHeight="46.0" prefWidth="194.0" text="Approve High-Value Projects" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="243.0" mnemonicParsing="false" onAction="#authorizeGrantsOnAction" prefHeight="46.0" prefWidth="194.0" text="Authorize Strategic Grant Applications" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="302.0" mnemonicParsing="false" onAction="#approveDonorReportsOnAction" prefHeight="46.0" prefWidth="194.0" text="Review and Approve Donor Reports" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="360.0" mnemonicParsing="false" onAction="#reviewAuditSummariesOnAction" prefHeight="46.0" prefWidth="194.0" text="Review Organizational Audit and Compliance Summaries" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="421.0" mnemonicParsing="false" onAction="#approvePoliciesOnAction" prefHeight="46.0" prefWidth="194.0" text="Approve Organization-Wide Policies" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="482.0" mnemonicParsing="false" onAction="#monitorRisksAlertsOnAction" prefHeight="46.0" prefWidth="194.0" text="Monitor Major Risks and Executive Alerts" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="541.0" mnemonicParsing="false" onAction="#reviewFundingPositionOnAction" prefHeight="46.0" prefWidth="194.0" text="Review Funding and Sustainability Position" textAlignment="CENTER" wrapText="true" />
+      <TableView fx:id="policyTV" layoutX="272.0" layoutY="130.0" prefHeight="260.0" prefWidth="585.0">
+        <columns>
+          <TableColumn fx:id="policyIdTC" prefWidth="75.0" text="Policy ID" />
+          <TableColumn fx:id="titleTC" prefWidth="180.0" text="Title" />
+          <TableColumn fx:id="areaTC" prefWidth="115.0" text="Area" />
+          <TableColumn fx:id="draftedByTC" prefWidth="105.0" text="Drafted By" />
+          <TableColumn fx:id="statusTC" prefWidth="108.0" text="Status" />
+        </columns>
+      </TableView>
+      <Label layoutX="272.0" layoutY="418.0" text="Policy ID:" />
+      <ComboBox fx:id="policyIdCB" layoutX="345.0" layoutY="414.0" prefWidth="150.0" />
+      <Label layoutX="525.0" layoutY="418.0" text="Decision:" />
+      <ComboBox fx:id="actionCB" layoutX="590.0" layoutY="414.0" prefWidth="165.0" />
+      <Label layoutX="272.0" layoutY="468.0" text="Comment:" />
+      <TextField fx:id="commentTF" layoutX="345.0" layoutY="464.0" prefHeight="25.0" prefWidth="410.0" />
+      <Button layoutX="505.0" layoutY="522.0" mnemonicParsing="false" onAction="#applyDecisionOnAction" text="Apply Decision" />
+      <Button layoutX="787.0" layoutY="30.0" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="46.0" prefWidth="70.0" text="Log Out" />
+   </children>
+</AnchorPane>
