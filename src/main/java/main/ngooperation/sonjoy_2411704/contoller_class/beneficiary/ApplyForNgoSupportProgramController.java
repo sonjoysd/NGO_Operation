@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import main.ngooperation.BinaryFileReadWrite;
 import main.ngooperation.sonjoy_2411704.model_class.NGOApplication;
 
 import java.io.*;
@@ -68,17 +69,8 @@ public class ApplyForNgoSupportProgramController
                 "pending"
         );
 
-        File file= new File("NGOApplication.bin");
-
-        FileOutputStream fos;
-        ObjectOutputStream oos;
-
-//        try{
-//            if (file.exists()){
-////                fos=new FileOutputStream(file,true);
-////                oos=
-//            }
-//        }
+        BinaryFileReadWrite.WriteObject("NGOApplication.bin",newApplication );
+        System.out.println("Bin file created");
 
 
 
