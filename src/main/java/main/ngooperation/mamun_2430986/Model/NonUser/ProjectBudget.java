@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class ProjectBudget implements Serializable {
-    private static final long serialVersionUID = 1L;
 
     private String budgetId, projectId, requestedBy, status, comment;
     private double amount;

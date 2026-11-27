@@ -3,7 +3,6 @@ package main.ngooperation.mamun_2430986.Model.NonUser;
 import java.io.Serializable;
 
 public class AuditSummary implements Serializable {
-    private static final long serialVersionUID = 1L;
 
     private String auditId, period, area, finding, complianceStatus;
 

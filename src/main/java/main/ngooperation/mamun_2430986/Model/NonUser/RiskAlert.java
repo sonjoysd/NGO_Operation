@@ -1,12 +1,9 @@
 package main.ngooperation.mamun_2430986.Model.NonUser;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 
 public class RiskAlert implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
 
     private String alertId, projectId, description, severity, raisedBy, status;
     private LocalDate date;

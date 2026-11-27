@@ -3,7 +3,6 @@ package main.ngooperation.mamun_2430986.Model.NonUser;
 import java.io.Serializable;
 
 public class PerformanceIndicator implements Serializable {
-    private static final long serialVersionUID = 1L;
 
     private String indicatorId, period, programArea, indicatorName;
     private double target, actual;

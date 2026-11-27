@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class GrantApplication implements Serializable {
-    private static final long serialVersionUID = 1L;
 
     private String grantId, donorAgency, programArea, status, comment;
     private double amount;
