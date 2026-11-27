@@ -2,6 +2,7 @@ package main.ngooperation.mamun_2430986.Model.User;
 
 import javafx.collections.ObservableList;
 import main.ngooperation.Employee;
+import main.ngooperation.mamun_2430986.Model.NonUser.AuditSummary;
 import main.ngooperation.mamun_2430986.Model.NonUser.DonorReport;
 import main.ngooperation.mamun_2430986.Model.NonUser.GrantApplication;
 import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
@@ -19,6 +20,7 @@ public class ExecutiveDirector extends Employee implements Serializable {
     private static final String BUDGETS_FILE = "ProjectBudgets.bin";
     private static final String GRANTS_FILE = "GrantApplications.bin";
     private static final String DONOR_REPORTS_FILE = "DonorReports.bin";
+    private static final String AUDIT_SUMMARIES_FILE = "AuditSummaries.bin";
 
     public ExecutiveDirector(int userId, String password, String userName, String phone, String role, String mail, int employeeId, LocalDate joiningDate, String designation, Float salary, String shift) {
         super(userId, password, userName, phone, role, mail, employeeId, joiningDate, designation, salary, shift);
@@ -107,5 +109,9 @@ public class ExecutiveDirector extends Employee implements Serializable {
             }
         }
         return false;
+    }
+
+    public static ObservableList<AuditSummary> loadAllAuditSummaries() {
+        return FileReadWrite.loadData(AuditSummary.class, AUDIT_SUMMARIES_FILE);
     }
 }

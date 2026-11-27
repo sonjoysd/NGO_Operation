@@ -2,6 +2,7 @@ package main.ngooperation.mamun_2430986.Model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import main.ngooperation.mamun_2430986.Model.NonUser.AuditSummary;
 import main.ngooperation.mamun_2430986.Model.NonUser.DonorReport;
 import main.ngooperation.mamun_2430986.Model.NonUser.GrantApplication;
 import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
@@ -41,6 +42,13 @@ public class DataSeeder {
         donorReports.add(new DonorReport("DR-404", "BRAC Foundation", "2026-Q2", "310 women trained in skills", "Approved", "Verified"));
         FileReadWrite.saveData(donorReports, "DonorReports.bin");
 
-        System.out.println("Seeded PerformanceIndicators.bin, ProjectBudgets.bin, GrantApplications.bin, and DonorReports.bin");
+        ObservableList<AuditSummary> audits = FXCollections.observableArrayList();
+        audits.add(new AuditSummary("AUD-501", "2026-Q1", "Finance", "All expense vouchers verified", "Compliant"));
+        audits.add(new AuditSummary("AUD-502", "2026-Q1", "Procurement", "Two quotes missing on PR-14", "Action Needed"));
+        audits.add(new AuditSummary("AUD-503", "2026-Q2", "HR", "Staff contracts up to date", "Compliant"));
+        audits.add(new AuditSummary("AUD-504", "2026-Q2", "Field Operations", "Delayed inventory reconciliation", "Under Review"));
+        FileReadWrite.saveData(audits, "AuditSummaries.bin");
+
+        System.out.println("Seeded PerformanceIndicators.bin, ProjectBudgets.bin, GrantApplications.bin, DonorReports.bin, and AuditSummaries.bin");
     }
 }
