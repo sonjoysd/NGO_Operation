@@ -44,8 +44,11 @@ public class TrackMilestonesController {
 
     private void switchScene(ActionEvent actionEvent, String fxmlFileName) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(
-                    "/main/ngooperation/mamun_2430986/ProjectCoordinator/" + fxmlFileName));
+            String path = "/main/ngooperation/mamun_2430986/ProjectCoordinator/" + fxmlFileName;
+            if (fxmlFileName.startsWith("/")) {
+                path = fxmlFileName;
+            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(loader.load()));
             stage.show();
@@ -92,6 +95,11 @@ public class TrackMilestonesController {
     @FXML
     public void escalateIssuesOnAction(ActionEvent actionEvent) {
         switchScene(actionEvent, "EscalateDelaysIssuesView.fxml");
+    }
+
+    @FXML
+    public void logoutOnAction(ActionEvent actionEvent) {
+        switchScene(actionEvent, "/main/ngooperation/LoginView.fxml");
     }
 
     @FXML

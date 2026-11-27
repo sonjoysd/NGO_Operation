@@ -29,5 +29,6 @@
       <Button layoutX="25.0" layoutY="421.0" mnemonicParsing="false" onAction="#approvePoliciesOnAction" prefHeight="46.0" prefWidth="194.0" text="Approve Organization-Wide Policies" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="25.0" layoutY="482.0" mnemonicParsing="false" onAction="#monitorRisksAlertsOnAction" prefHeight="46.0" prefWidth="194.0" text="Monitor Major Risks and Executive Alerts" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="25.0" layoutY="541.0" mnemonicParsing="false" onAction="#reviewFundingPositionOnAction" prefHeight="46.0" prefWidth="194.0" text="Review Funding and Sustainability Position" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="787.0" layoutY="30.0" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="46.0" prefWidth="70.0" text="Log Out" />
    </children>
 </AnchorPane>

@@ -41,8 +41,11 @@ public class ApproveDonorReportsController {
 
     private void switchScene(ActionEvent actionEvent, String fxmlFileName) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(
-                    "/main/ngooperation/mamun_2430986/ExecutiveDirector/" + fxmlFileName));
+            String path = "/main/ngooperation/mamun_2430986/ExecutiveDirector/" + fxmlFileName;
+            if (fxmlFileName.startsWith("/")) {
+                path = fxmlFileName;
+            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(loader.load()));
             stage.show();
@@ -89,6 +92,11 @@ public class ApproveDonorReportsController {
     @FXML
     public void reviewFundingPositionOnAction(ActionEvent actionEvent) {
         switchScene(actionEvent, "ReviewFundingPositionView.fxml");
+    }
+
+    @FXML
+    public void logoutOnAction(ActionEvent actionEvent) {
+        switchScene(actionEvent, "/main/ngooperation/LoginView.fxml");
     }
 
     @FXML

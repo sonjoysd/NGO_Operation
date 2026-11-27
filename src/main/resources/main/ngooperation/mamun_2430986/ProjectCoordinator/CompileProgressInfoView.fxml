@@ -48,5 +48,6 @@
           <TableColumn fx:id="summaryTC" prefWidth="253.0" text="Summary" />
         </columns>
       </TableView>
+      <Button layoutX="787.0" layoutY="30.0" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="46.0" prefWidth="70.0" text="Log Out" />
    </children>
 </AnchorPane>
