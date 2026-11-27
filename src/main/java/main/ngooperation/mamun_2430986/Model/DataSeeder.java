@@ -2,6 +2,7 @@ package main.ngooperation.mamun_2430986.Model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import main.ngooperation.mamun_2430986.Model.NonUser.GrantApplication;
 import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectBudget;
 import main.ngooperation.mamun_2430986.Utility.FileReadWrite;
@@ -25,6 +26,13 @@ public class DataSeeder {
         budgets.add(new ProjectBudget("BUD-204", "PRJ-04", "Project Manager", "Approved", "Approved for Q2", 95000.0, LocalDate.of(2026, 3, 20)));
         FileReadWrite.saveData(budgets, "ProjectBudgets.bin");
 
-        System.out.println("Seeded PerformanceIndicators.bin and ProjectBudgets.bin");
+        ObservableList<GrantApplication> grants = FXCollections.observableArrayList();
+        grants.add(new GrantApplication("GR-301", "UNICEF", "Education", "Pending", "", 150000.0, LocalDate.of(2026, 3, 12)));
+        grants.add(new GrantApplication("GR-302", "WHO", "Health", "Pending", "", 220000.0, LocalDate.of(2026, 3, 15)));
+        grants.add(new GrantApplication("GR-303", "UNDP", "Housing", "Pending", "", 180000.0, LocalDate.of(2026, 3, 19)));
+        grants.add(new GrantApplication("GR-304", "BRAC Foundation", "Empowerment", "Approved", "Authorized", 90000.0, LocalDate.of(2026, 3, 22)));
+        FileReadWrite.saveData(grants, "GrantApplications.bin");
+
+        System.out.println("Seeded PerformanceIndicators.bin, ProjectBudgets.bin, and GrantApplications.bin");
     }
 }
