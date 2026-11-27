@@ -1,81 +1,68 @@
 package main.ngooperation.mamun_2430986.Utility;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
-import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
+import java.util.ArrayList;
 
 public class FileReadWrite {
 
-    private static class AppendableObjectOutputStream extends ObjectOutputStream {
-        public AppendableObjectOutputStream(OutputStream out) throws IOException {
-            super(out);
-        }
+    public static ArrayList<Object> loadData(String fileName) {
+        ArrayList<Object> list = new ArrayList<Object>();
+        File f = new File(fileName);
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
 
-        @Override
-        protected void writeStreamHeader() throws IOException {
-        }
-    }
-
-    public static <T> ObservableList<T> loadData(Class<T> className, String fileName) {
-        ObservableList<T> list = FXCollections.observableArrayList();
-
-        File file = new File(fileName);
-        if (!file.exists()) {
-            return list;
-        }
-
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-            while (true) {
-                try {
-                    Object obj = ois.readObject();
-                    if (className.isInstance(obj)) {
-                        list.add(className.cast(obj));
-                    }
-                } catch (EOFException eof) {
-                    break;
+        try {
+            if (f.exists()) {
+                fis = new FileInputStream(f);
+                ois = new ObjectInputStream(fis);
+                while (true) {
+                    list.add(ois.readObject());
                 }
             }
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            if (ois != null) {
+                try {
+                    ois.close();
+                } catch (Exception e2) {
+                }
+            }
         }
-
         return list;
     }
 
-    public static <T> void saveData(ObservableList<T> list, String fileName) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
-            for (T obj : list) {
+    public static void saveData(ArrayList<Object> list, String fileName) {
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+            fos = new FileOutputStream(fileName);
+            oos = new ObjectOutputStream(fos);
+            for (Object obj : list) {
                 oos.writeObject(obj);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            oos.close();
+        } catch (Exception e) {
         }
     }
 
-    public static <T> void append(T object, String fileName) {
+    public static void append(Object object, String fileName) {
+        File f = new File(fileName);
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
         try {
-            File file = new File(fileName);
-            boolean appendRequiresSkip = file.exists() && file.length() > 0;
-            ObjectOutputStream oos;
-
-            if (appendRequiresSkip) {
-                oos = new AppendableObjectOutputStream(new FileOutputStream(fileName, true));
+            if (f.exists() && f.length() > 0) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
             } else {
-                oos = new ObjectOutputStream(new FileOutputStream(fileName, true));
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
             }
-
             oos.writeObject(object);
             oos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
         }
     }
 }
