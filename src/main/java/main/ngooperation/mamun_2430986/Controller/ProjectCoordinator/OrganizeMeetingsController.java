@@ -141,7 +141,7 @@ public class OrganizeMeetingsController {
             return;
         }
 
-        String meetingId = "MTG-" + System.currentTimeMillis();
+        String meetingId = "MTG-" + (601 + ProjectCoordinator.loadAllMeetings().size());
         CoordinationMeeting meeting = new CoordinationMeeting(
                 meetingId,
                 projectIdTF.getText(),

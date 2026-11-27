@@ -3,6 +3,7 @@ module NGO.Operation {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
+    requires java.desktop;
 
 
     opens main.ngooperation to javafx.fxml;

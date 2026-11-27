@@ -1,6 +1,7 @@
 package main.ngooperation.shafial_2411827;
 
 import main.ngooperation.AppendableObjectOutputStream;
+import main.ngooperation.BinaryFileReadWrite;
 import main.ngooperation.Employee;
 
 import java.io.*;
@@ -36,25 +37,8 @@ public class FieldOfficer extends Employee implements Serializable {
 
         RegisterNewBeneficiary newReg = new RegisterNewBeneficiary(1, fullName, contactNumber, community, address, "Pending");
 
-        ObjectOutputStream oos = null;
-        FileOutputStream fos = null;
-        try {
-            File file = new File("RegisterNewBeneficiary.bin");
-
-            if (file.exists()){
-                fos = new FileOutputStream(file, true);
-                oos = new AppendableObjectOutputStream(fos);
-            }
-            else{
-                fos = new FileOutputStream(file);
-                oos = new ObjectOutputStream(fos);
-            }
-
-            oos.writeObject(newReg);
-            return true;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        BinaryFileReadWrite.WriteObject("BeneficiaryRegister.bin", newReg);
+        return true;
 
     }
 
@@ -72,5 +56,7 @@ public class FieldOfficer extends Employee implements Serializable {
         } catch (Exception e) {
             //
         }
+        return readList;
     }
+
 }

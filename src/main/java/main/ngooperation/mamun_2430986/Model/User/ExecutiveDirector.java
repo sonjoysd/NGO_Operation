@@ -41,7 +41,7 @@ public class ExecutiveDirector extends Employee implements Serializable {
     }
 
     public static void saveReviewNote(String targetId, String reviewerRole, String noteText) {
-        String noteId = "RN-" + System.currentTimeMillis();
+        String noteId = "RN-" + (101 + FileReadWrite.loadData(REVIEW_NOTES_FILE).size());
         ReviewNote note = new ReviewNote(noteId, targetId, reviewerRole, noteText, LocalDate.now());
         FileReadWrite.append(note, REVIEW_NOTES_FILE);
     }

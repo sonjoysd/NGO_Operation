@@ -141,7 +141,7 @@ public class CoordinateFieldStaffController {
             return;
         }
 
-        String assignmentId = "ASG-" + System.currentTimeMillis();
+        String assignmentId = "ASG-" + (201 + ProjectCoordinator.loadAllAssignments().size());
         StaffAssignment assignment = new StaffAssignment(
                 assignmentId,
                 projectIdTF.getText(),

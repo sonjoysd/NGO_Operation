@@ -153,7 +153,7 @@ public class CoordinateProcurementController {
             return;
         }
 
-        String requestId = "RES-" + System.currentTimeMillis();
+        String requestId = "RES-" + (501 + ProjectCoordinator.loadAllResourceRequests().size());
         ResourceRequest request = new ResourceRequest(
                 requestId,
                 projectIdTF.getText(),
