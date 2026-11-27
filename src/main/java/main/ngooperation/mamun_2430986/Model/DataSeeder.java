@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import main.ngooperation.mamun_2430986.Model.NonUser.AuditSummary;
 import main.ngooperation.mamun_2430986.Model.NonUser.DonorReport;
 import main.ngooperation.mamun_2430986.Model.NonUser.GrantApplication;
+import main.ngooperation.mamun_2430986.Model.NonUser.OrganizationPolicy;
 import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectBudget;
 import main.ngooperation.mamun_2430986.Utility.FileReadWrite;
@@ -49,6 +50,13 @@ public class DataSeeder {
         audits.add(new AuditSummary("AUD-504", "2026-Q2", "Field Operations", "Delayed inventory reconciliation", "Under Review"));
         FileReadWrite.saveData(audits, "AuditSummaries.bin");
 
-        System.out.println("Seeded PerformanceIndicators.bin, ProjectBudgets.bin, GrantApplications.bin, DonorReports.bin, and AuditSummaries.bin");
+        ObservableList<OrganizationPolicy> policies = FXCollections.observableArrayList();
+        policies.add(new OrganizationPolicy("POL-601", "Data Privacy Policy", "IT & Compliance", "HR Manager", "Pending", ""));
+        policies.add(new OrganizationPolicy("POL-602", "Field Safety Guidelines", "Field Operations", "Project Manager", "Pending", ""));
+        policies.add(new OrganizationPolicy("POL-603", "Procurement Threshold Rule", "Finance", "Account Officer", "Pending", ""));
+        policies.add(new OrganizationPolicy("POL-604", "Leave Carryover Policy", "Human Resources", "HR Manager", "Approved", "Effective Q2"));
+        FileReadWrite.saveData(policies, "OrganizationPolicies.bin");
+
+        System.out.println("Seeded PerformanceIndicators.bin, ProjectBudgets.bin, GrantApplications.bin, DonorReports.bin, AuditSummaries.bin, and OrganizationPolicies.bin");
     }
 }

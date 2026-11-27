@@ -5,6 +5,7 @@ import main.ngooperation.Employee;
 import main.ngooperation.mamun_2430986.Model.NonUser.AuditSummary;
 import main.ngooperation.mamun_2430986.Model.NonUser.DonorReport;
 import main.ngooperation.mamun_2430986.Model.NonUser.GrantApplication;
+import main.ngooperation.mamun_2430986.Model.NonUser.OrganizationPolicy;
 import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectBudget;
 import main.ngooperation.mamun_2430986.Model.NonUser.ReviewNote;
@@ -21,6 +22,7 @@ public class ExecutiveDirector extends Employee implements Serializable {
     private static final String GRANTS_FILE = "GrantApplications.bin";
     private static final String DONOR_REPORTS_FILE = "DonorReports.bin";
     private static final String AUDIT_SUMMARIES_FILE = "AuditSummaries.bin";
+    private static final String POLICIES_FILE = "OrganizationPolicies.bin";
 
     public ExecutiveDirector(int userId, String password, String userName, String phone, String role, String mail, int employeeId, LocalDate joiningDate, String designation, Float salary, String shift) {
         super(userId, password, userName, phone, role, mail, employeeId, joiningDate, designation, salary, shift);
@@ -113,5 +115,30 @@ public class ExecutiveDirector extends Employee implements Serializable {
 
     public static ObservableList<AuditSummary> loadAllAuditSummaries() {
         return FileReadWrite.loadData(AuditSummary.class, AUDIT_SUMMARIES_FILE);
+    }
+
+    public static ObservableList<OrganizationPolicy> loadAllPolicies() {
+        return FileReadWrite.loadData(OrganizationPolicy.class, POLICIES_FILE);
+    }
+
+    public static boolean applyPolicyAction(String policyId, String action, String comment) {
+        ObservableList<OrganizationPolicy> all = FileReadWrite.loadData(OrganizationPolicy.class, POLICIES_FILE);
+        for (int i = 0; i < all.size(); i++) {
+            if (all.get(i).getPolicyId().equals(policyId)) {
+                String newStatus;
+                if (action.equals("Approve")) {
+                    newStatus = "Approved";
+                } else if (action.equals("Reject")) {
+                    newStatus = "Rejected";
+                } else {
+                    newStatus = "Returned for Correction";
+                }
+                all.get(i).setStatus(newStatus);
+                all.get(i).setComment(comment);
+                FileReadWrite.saveData(all, POLICIES_FILE);
+                return true;
+            }
+        }
+        return false;
     }
 }
