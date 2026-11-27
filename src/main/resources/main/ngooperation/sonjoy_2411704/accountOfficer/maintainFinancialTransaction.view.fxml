@@ -8,30 +8,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-
 <AnchorPane prefHeight="488.0" prefWidth="627.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.sonjoy_2411704.contoller_class.account_officer.maintaimFinancialTransactionController">
    <children>
       <Label layoutX="358.0" layoutY="2.0" prefHeight="31.0" prefWidth="178.0" style="-fx-background-color: aqua;" text="Maintain Transaction Dashboard" textFill="#d11313" />
-      <Button layoutX="-1.0" layoutY="43.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Record and verify NGO expenses" />
-      <Button layoutX="-1.0" layoutY="93.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Process authorized project and operational payments" />
-      <Button layoutX="-1.0" layoutY="143.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Record and reconcile donor contributions" />
-      <Button layoutY="193.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Monitor project budgets and expenditures" />
-      <Button layoutY="244.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Prepare periodic financial statements and reports" />
-      <Button layoutY="294.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Review staff and field expense claims" />
-      <Button layoutX="-1.0" layoutY="343.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Maintain financial transaction records" />
-      <Button layoutY="393.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="250.0" text="Prepare financial documents for audit" />
+      <Button layoutX="-1.0" layoutY="43.0" mnemonicParsing="false" onAction="#recordAndVerifyExpensesOnAction" prefHeight="46.0" prefWidth="250.0" text="Record and verify NGO expenses" />
+      <Button layoutX="-1.0" layoutY="93.0" mnemonicParsing="false" onAction="#authorizedProjectOnAction" prefHeight="46.0" prefWidth="250.0" text="Process authorized project and operational payments" />
+      <Button layoutX="-1.0" layoutY="143.0" mnemonicParsing="false" onAction="#donorContributionOnAction" prefHeight="46.0" prefWidth="250.0" text="Record and reconcile donor contributions" />
+      <Button layoutY="193.0" mnemonicParsing="false" onAction="#monitorProjectBudgetsOnAction" prefHeight="46.0" prefWidth="250.0" text="Monitor project budgets and expenditures" />
+      <Button layoutY="244.0" mnemonicParsing="false" onAction="#financialStatementOnAction" prefHeight="46.0" prefWidth="250.0" text="Prepare periodic financial statements and reports" />
+      <Button layoutY="294.0" mnemonicParsing="false" onAction="#reviewExpensesOnAction" prefHeight="46.0" prefWidth="250.0" text="Review staff and field expense claims" />
+      <Button layoutX="-1.0" layoutY="343.0" mnemonicParsing="false" onAction="#transactionRecordOnAction" prefHeight="46.0" prefWidth="250.0" text="Maintain financial transaction records" />
+      <Button layoutY="393.0" mnemonicParsing="false" onAction="#financialDocumentOnAction" prefHeight="46.0" prefWidth="250.0" text="Prepare financial documents for audit" />
       <Line endX="-135.20001220703125" endY="318.9999694824219" layoutX="388.0" layoutY="171.0" startX="-135.19998168945312" startY="-169.0" />
       <Label layoutX="270.0" layoutY="43.0" text="Transaction ID:" />
-      <TextField layoutX="358.0" layoutY="39.0" />
-      <ComboBox layoutX="358.0" layoutY="66.0" prefWidth="150.0" promptText="Project" />
-      <ComboBox layoutX="358.0" layoutY="95.0" prefWidth="150.0" promptText="Financial Category" />
+      <TextField fx:id="transactionIsTF" layoutX="358.0" layoutY="39.0" />
+      <ComboBox fx:id="projectCB" layoutX="358.0" layoutY="66.0" prefWidth="150.0" promptText="Project" />
+      <ComboBox fx:id="financialCategoryCB" layoutX="358.0" layoutY="95.0" prefWidth="150.0" promptText="Financial Category" />
       <Label layoutX="270.0" layoutY="128.0" text="Amount:" />
-      <TextField layoutX="358.0" layoutY="124.0" />
+      <TextField fx:id="amountTF" layoutX="358.0" layoutY="124.0" />
       <Label layoutX="283.0" layoutY="159.0" text="Date:" />
-      <DatePicker layoutX="346.0" layoutY="153.0" />
-      <ComboBox layoutX="357.0" layoutY="189.0" prefWidth="150.0" promptText="Payment Method" />
-      <Button layoutX="283.0" layoutY="255.0" mnemonicParsing="false" text="Add" />
-      <Button layoutX="399.0" layoutY="254.0" mnemonicParsing="false" text="Update" />
-      <Button layoutX="527.0" layoutY="255.0" mnemonicParsing="false" text="Delete" />
+      <DatePicker fx:id="dateDP" layoutX="346.0" layoutY="153.0" />
+      <ComboBox fx:id="paymentMethodCB" layoutX="357.0" layoutY="189.0" prefWidth="150.0" promptText="Payment Method" />
+      <Button layoutX="283.0" layoutY="255.0" mnemonicParsing="false" onAction="#addOnAction" text="Add" />
+      <Button layoutX="399.0" layoutY="254.0" mnemonicParsing="false" onAction="#updateOnAction" text="Update" />
+      <Button layoutX="527.0" layoutY="255.0" mnemonicParsing="false" onAction="#deleteOnAction" text="Delete" />
    </children>
 </AnchorPane>
