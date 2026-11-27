@@ -1,6 +1,5 @@
 package main.ngooperation.mamun_2430986.Model.User;
 
-import javafx.collections.ObservableList;
 import main.ngooperation.Employee;
 import main.ngooperation.mamun_2430986.Model.NonUser.AuditSummary;
 import main.ngooperation.mamun_2430986.Model.NonUser.DonorReport;
@@ -15,6 +14,7 @@ import main.ngooperation.mamun_2430986.Utility.FileReadWrite;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class ExecutiveDirector extends Employee implements Serializable {
 
@@ -32,8 +32,12 @@ public class ExecutiveDirector extends Employee implements Serializable {
         super(userId, password, userName, phone, role, mail, employeeId, joiningDate, designation, salary, shift);
     }
 
-    public static ObservableList<PerformanceIndicator> loadAllKPIs() {
-        return FileReadWrite.loadData(PerformanceIndicator.class, KPI_FILE);
+    public static ArrayList<PerformanceIndicator> loadAllKPIs() {
+        ArrayList<PerformanceIndicator> list = new ArrayList<PerformanceIndicator>();
+        for (Object obj : FileReadWrite.loadData(KPI_FILE)) {
+            list.add((PerformanceIndicator) obj);
+        }
+        return list;
     }
 
     public static void saveReviewNote(String targetId, String reviewerRole, String noteText) {
@@ -42,12 +46,16 @@ public class ExecutiveDirector extends Employee implements Serializable {
         FileReadWrite.append(note, REVIEW_NOTES_FILE);
     }
 
-    public static ObservableList<ProjectBudget> loadAllBudgets() {
-        return FileReadWrite.loadData(ProjectBudget.class, BUDGETS_FILE);
+    public static ArrayList<ProjectBudget> loadAllBudgets() {
+        ArrayList<ProjectBudget> list = new ArrayList<ProjectBudget>();
+        for (Object obj : FileReadWrite.loadData(BUDGETS_FILE)) {
+            list.add((ProjectBudget) obj);
+        }
+        return list;
     }
 
     public static boolean applyBudgetAction(String budgetId, String action, String comment) {
-        ObservableList<ProjectBudget> all = FileReadWrite.loadData(ProjectBudget.class, BUDGETS_FILE);
+        ArrayList<ProjectBudget> all = loadAllBudgets();
         for (int i = 0; i < all.size(); i++) {
             if (all.get(i).getBudgetId().equals(budgetId)) {
                 String newStatus;
@@ -60,19 +68,28 @@ public class ExecutiveDirector extends Employee implements Serializable {
                 }
                 all.get(i).setStatus(newStatus);
                 all.get(i).setComment(comment);
-                FileReadWrite.saveData(all, BUDGETS_FILE);
+
+                ArrayList<Object> raw = new ArrayList<Object>();
+                for (ProjectBudget b : all) {
+                    raw.add(b);
+                }
+                FileReadWrite.saveData(raw, BUDGETS_FILE);
                 return true;
             }
         }
         return false;
     }
 
-    public static ObservableList<GrantApplication> loadAllGrants() {
-        return FileReadWrite.loadData(GrantApplication.class, GRANTS_FILE);
+    public static ArrayList<GrantApplication> loadAllGrants() {
+        ArrayList<GrantApplication> list = new ArrayList<GrantApplication>();
+        for (Object obj : FileReadWrite.loadData(GRANTS_FILE)) {
+            list.add((GrantApplication) obj);
+        }
+        return list;
     }
 
     public static boolean applyGrantAction(String grantId, String action, String comment) {
-        ObservableList<GrantApplication> all = FileReadWrite.loadData(GrantApplication.class, GRANTS_FILE);
+        ArrayList<GrantApplication> all = loadAllGrants();
         for (int i = 0; i < all.size(); i++) {
             if (all.get(i).getGrantId().equals(grantId)) {
                 String newStatus;
@@ -85,19 +102,28 @@ public class ExecutiveDirector extends Employee implements Serializable {
                 }
                 all.get(i).setStatus(newStatus);
                 all.get(i).setComment(comment);
-                FileReadWrite.saveData(all, GRANTS_FILE);
+
+                ArrayList<Object> raw = new ArrayList<Object>();
+                for (GrantApplication g : all) {
+                    raw.add(g);
+                }
+                FileReadWrite.saveData(raw, GRANTS_FILE);
                 return true;
             }
         }
         return false;
     }
 
-    public static ObservableList<DonorReport> loadAllDonorReports() {
-        return FileReadWrite.loadData(DonorReport.class, DONOR_REPORTS_FILE);
+    public static ArrayList<DonorReport> loadAllDonorReports() {
+        ArrayList<DonorReport> list = new ArrayList<DonorReport>();
+        for (Object obj : FileReadWrite.loadData(DONOR_REPORTS_FILE)) {
+            list.add((DonorReport) obj);
+        }
+        return list;
     }
 
     public static boolean applyDonorReportAction(String reportId, String action, String comment) {
-        ObservableList<DonorReport> all = FileReadWrite.loadData(DonorReport.class, DONOR_REPORTS_FILE);
+        ArrayList<DonorReport> all = loadAllDonorReports();
         for (int i = 0; i < all.size(); i++) {
             if (all.get(i).getReportId().equals(reportId)) {
                 String newStatus;
@@ -110,23 +136,36 @@ public class ExecutiveDirector extends Employee implements Serializable {
                 }
                 all.get(i).setStatus(newStatus);
                 all.get(i).setComment(comment);
-                FileReadWrite.saveData(all, DONOR_REPORTS_FILE);
+
+                ArrayList<Object> raw = new ArrayList<Object>();
+                for (DonorReport r : all) {
+                    raw.add(r);
+                }
+                FileReadWrite.saveData(raw, DONOR_REPORTS_FILE);
                 return true;
             }
         }
         return false;
     }
 
-    public static ObservableList<AuditSummary> loadAllAuditSummaries() {
-        return FileReadWrite.loadData(AuditSummary.class, AUDIT_SUMMARIES_FILE);
+    public static ArrayList<AuditSummary> loadAllAuditSummaries() {
+        ArrayList<AuditSummary> list = new ArrayList<AuditSummary>();
+        for (Object obj : FileReadWrite.loadData(AUDIT_SUMMARIES_FILE)) {
+            list.add((AuditSummary) obj);
+        }
+        return list;
     }
 
-    public static ObservableList<OrganizationPolicy> loadAllPolicies() {
-        return FileReadWrite.loadData(OrganizationPolicy.class, POLICIES_FILE);
+    public static ArrayList<OrganizationPolicy> loadAllPolicies() {
+        ArrayList<OrganizationPolicy> list = new ArrayList<OrganizationPolicy>();
+        for (Object obj : FileReadWrite.loadData(POLICIES_FILE)) {
+            list.add((OrganizationPolicy) obj);
+        }
+        return list;
     }
 
     public static boolean applyPolicyAction(String policyId, String action, String comment) {
-        ObservableList<OrganizationPolicy> all = FileReadWrite.loadData(OrganizationPolicy.class, POLICIES_FILE);
+        ArrayList<OrganizationPolicy> all = loadAllPolicies();
         for (int i = 0; i < all.size(); i++) {
             if (all.get(i).getPolicyId().equals(policyId)) {
                 String newStatus;
@@ -139,18 +178,31 @@ public class ExecutiveDirector extends Employee implements Serializable {
                 }
                 all.get(i).setStatus(newStatus);
                 all.get(i).setComment(comment);
-                FileReadWrite.saveData(all, POLICIES_FILE);
+
+                ArrayList<Object> raw = new ArrayList<Object>();
+                for (OrganizationPolicy p : all) {
+                    raw.add(p);
+                }
+                FileReadWrite.saveData(raw, POLICIES_FILE);
                 return true;
             }
         }
         return false;
     }
 
-    public static ObservableList<RiskAlert> loadAllRiskAlerts() {
-        return FileReadWrite.loadData(RiskAlert.class, RISK_ALERTS_FILE);
+    public static ArrayList<RiskAlert> loadAllRiskAlerts() {
+        ArrayList<RiskAlert> list = new ArrayList<RiskAlert>();
+        for (Object obj : FileReadWrite.loadData(RISK_ALERTS_FILE)) {
+            list.add((RiskAlert) obj);
+        }
+        return list;
     }
 
-    public static ObservableList<FundingPosition> loadAllFundingPositions() {
-        return FileReadWrite.loadData(FundingPosition.class, FUNDING_POSITIONS_FILE);
+    public static ArrayList<FundingPosition> loadAllFundingPositions() {
+        ArrayList<FundingPosition> list = new ArrayList<FundingPosition>();
+        for (Object obj : FileReadWrite.loadData(FUNDING_POSITIONS_FILE)) {
+            list.add((FundingPosition) obj);
+        }
+        return list;
     }
 }
