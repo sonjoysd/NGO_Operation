@@ -9,6 +9,7 @@ import main.ngooperation.mamun_2430986.Model.NonUser.GrantApplication;
 import main.ngooperation.mamun_2430986.Model.NonUser.OrganizationPolicy;
 import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectBudget;
+import main.ngooperation.mamun_2430986.Model.NonUser.ProjectSchedule;
 import main.ngooperation.mamun_2430986.Model.NonUser.RiskAlert;
 import main.ngooperation.mamun_2430986.Utility.FileReadWrite;
 
@@ -73,6 +74,12 @@ public class DataSeeder {
         funding.add(new FundingPosition("FND-804", "2026-Q2", "Government Co-Fund", "Stable", 200000.0, 185000.0));
         FileReadWrite.saveData(funding, "FundingPositions.bin");
 
-        System.out.println("Seeded all Executive Director .bin files.");
+        ObservableList<ProjectSchedule> schedules = FXCollections.observableArrayList();
+        schedules.add(new ProjectSchedule("SCH-101", "PRJ-01", "School Kit Distribution", "Sylhet", "Team Alpha", "Planned", LocalDate.of(2026, 4, 5)));
+        schedules.add(new ProjectSchedule("SCH-102", "PRJ-02", "Mobile Health Camp", "Khulna", "Team Beta", "In Progress", LocalDate.of(2026, 4, 8)));
+        schedules.add(new ProjectSchedule("SCH-103", "PRJ-03", "Shelter Site Survey", "Rajshahi", "Team Gamma", "Planned", LocalDate.of(2026, 4, 12)));
+        FileReadWrite.saveData(schedules, "ProjectSchedules.bin");
+
+        System.out.println("Seeded Executive Director and ProjectSchedules.bin files.");
     }
 }
