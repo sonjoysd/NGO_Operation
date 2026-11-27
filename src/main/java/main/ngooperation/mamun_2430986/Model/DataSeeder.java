@@ -9,6 +9,7 @@ import main.ngooperation.mamun_2430986.Model.NonUser.GrantApplication;
 import main.ngooperation.mamun_2430986.Model.NonUser.OrganizationPolicy;
 import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectBudget;
+import main.ngooperation.mamun_2430986.Model.NonUser.ProjectMilestone;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectSchedule;
 import main.ngooperation.mamun_2430986.Model.NonUser.RiskAlert;
 import main.ngooperation.mamun_2430986.Model.NonUser.StaffAssignment;
@@ -95,6 +96,13 @@ public class DataSeeder {
         applications.add(new NGOApplication(1004, 1711000004, 5004, "Salma Akter", "Woman Empowerment Program", LocalDate.of(2026, 3, 27), "Routed to Empowerment Team"));
         FileReadWrite.saveData(applications, "NGOApplication.bin");
 
-        System.out.println("Seeded Executive Director, ProjectSchedules.bin, StaffAssignments.bin, and NGOApplication.bin files.");
+        ObservableList<ProjectMilestone> milestones = FXCollections.observableArrayList();
+        milestones.add(new ProjectMilestone("MS-401", "PRJ-01", "School Supplies Delivered", "Completed", LocalDate.of(2026, 3, 25), 100));
+        milestones.add(new ProjectMilestone("MS-402", "PRJ-02", "Health Clinic Setup", "On Track", LocalDate.of(2026, 4, 15), 70));
+        milestones.add(new ProjectMilestone("MS-403", "PRJ-03", "Shelter Foundation Work", "Delayed", LocalDate.of(2026, 4, 20), 40));
+        milestones.add(new ProjectMilestone("MS-404", "PRJ-04", "Women Training Cohort 1", "On Track", LocalDate.of(2026, 4, 30), 60));
+        FileReadWrite.saveData(milestones, "ProjectMilestones.bin");
+
+        System.out.println("Seeded Executive Director, ProjectSchedules.bin, StaffAssignments.bin, NGOApplication.bin, and ProjectMilestones.bin files.");
     }
 }
