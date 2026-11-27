@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
 import main.ngooperation.mamun_2430986.Model.User.ExecutiveDirector;
@@ -40,11 +41,18 @@ public class ReviewKPIsController {
     private ComboBox<String> kpiIdCB;
     @FXML
     private TextField reviewNoteTF;
+    @FXML
+    private Text pageTitleText;
+    @FXML
+    private Text pageSubtitleText;
 
     private void switchScene(ActionEvent actionEvent, String fxmlFileName) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(
-                    "/main/ngooperation/mamun_2430986/ExecutiveDirector/" + fxmlFileName));
+            String path = "/main/ngooperation/mamun_2430986/ExecutiveDirector/" + fxmlFileName;
+            if (fxmlFileName.startsWith("/")) {
+                path = fxmlFileName;
+            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(loader.load()));
             stage.show();
@@ -91,6 +99,11 @@ public class ReviewKPIsController {
     @FXML
     public void reviewFundingPositionOnAction(ActionEvent actionEvent) {
         switchScene(actionEvent, "ReviewFundingPositionView.fxml");
+    }
+
+    @FXML
+    public void logoutOnAction(ActionEvent actionEvent) {
+        switchScene(actionEvent, "/main/ngooperation/LoginView.fxml");
     }
 
     @FXML
@@ -153,5 +166,4 @@ public class ReviewKPIsController {
         AlertHelper.showInfo("Review note saved for " + kpiIdCB.getValue() + ".");
         reviewNoteTF.clear();
     }
-
 }

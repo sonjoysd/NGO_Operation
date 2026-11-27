@@ -50,5 +50,6 @@
       <Label layoutX="272.0" layoutY="468.0" text="Escalation Note:" />
       <TextField fx:id="noteTF" layoutX="370.0" layoutY="464.0" prefHeight="25.0" prefWidth="375.0" />
       <Button layoutX="490.0" layoutY="522.0" mnemonicParsing="false" onAction="#escalateOnAction" text="Escalate to Director" />
+      <Button layoutX="787.0" layoutY="30.0" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="46.0" prefWidth="70.0" text="Log Out" />
    </children>
 </AnchorPane>

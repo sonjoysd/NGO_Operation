@@ -29,5 +29,6 @@
         <Button layoutX="25.0" layoutY="421.0" mnemonicParsing="false" onAction="#organizeMeetingsOnAction" prefHeight="46.0" prefWidth="194.0" text="Organize Project Coordination Meetings" textAlignment="CENTER" wrapText="true" />
         <Button layoutX="25.0" layoutY="482.0" mnemonicParsing="false" onAction="#compileProgressOnAction" prefHeight="46.0" prefWidth="194.0" text="Compile Project Progress Information" textAlignment="CENTER" wrapText="true" />
         <Button layoutX="25.0" layoutY="541.0" mnemonicParsing="false" onAction="#escalateIssuesOnAction" prefHeight="46.0" prefWidth="194.0" text="Escalate Project Delays and Operational Issues" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="787.0" layoutY="30.0" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="46.0" prefWidth="70.0" text="Log Out" />
     </children>
 </AnchorPane>
