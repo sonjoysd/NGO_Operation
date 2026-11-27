@@ -98,9 +98,7 @@ public class ProjectCoordinator extends Employee implements Serializable {
                 }
                 FileReadWrite.saveData(raw, NGO_APPLICATIONS_FILE);
 
-                String noteId = "RN-" + System.currentTimeMillis();
-                ReviewNote note = new ReviewNote(noteId, "APP-" + applicationId, "Project Coordinator", noteText, LocalDate.now());
-                FileReadWrite.append(note, REVIEW_NOTES_FILE);
+                saveReviewNote("APP-" + applicationId, "Project Coordinator", noteText);
                 return true;
             }
         }
@@ -116,7 +114,7 @@ public class ProjectCoordinator extends Employee implements Serializable {
     }
 
     public static void saveReviewNote(String targetId, String reviewerRole, String noteText) {
-        String noteId = "RN-" + System.currentTimeMillis();
+        String noteId = "RN-" + (101 + FileReadWrite.loadData(REVIEW_NOTES_FILE).size());
         ReviewNote note = new ReviewNote(noteId, targetId, reviewerRole, noteText, LocalDate.now());
         FileReadWrite.append(note, REVIEW_NOTES_FILE);
     }
@@ -206,7 +204,7 @@ public class ProjectCoordinator extends Employee implements Serializable {
         }
 
         String summary = "Activities: " + scheduleCount + ", Milestones Completed: " + completedMilestones + "/" + milestoneCount + ", Resource Requests: " + resourceCount;
-        String reportId = "PPR-" + System.currentTimeMillis();
+        String reportId = "PPR-" + (701 + loadAllProgressReports().size());
         ProjectProgressReport report = new ProjectProgressReport(reportId, projectId, period, summary, LocalDate.now());
         FileReadWrite.append(report, PROGRESS_REPORTS_FILE);
 
@@ -242,7 +240,7 @@ public class ProjectCoordinator extends Employee implements Serializable {
                 }
                 FileReadWrite.saveData(raw, ISSUES_FILE);
 
-                String alertId = "ALT-" + System.currentTimeMillis();
+                String alertId = "ALT-" + (701 + FileReadWrite.loadData(RISK_ALERTS_FILE).size());
                 RiskAlert alert = new RiskAlert(
                         alertId,
                         issue.getProjectId(),
