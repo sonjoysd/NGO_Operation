@@ -141,7 +141,7 @@ public class PrepareActivitySchedulesController {
             return;
         }
 
-        String scheduleId = "SCH-" + System.currentTimeMillis();
+        String scheduleId = "SCH-" + (101 + ProjectCoordinator.loadAllSchedules().size());
         ProjectSchedule schedule = new ProjectSchedule(
                 scheduleId,
                 projectIdTF.getText(),

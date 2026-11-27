@@ -1,9 +1,12 @@
 package main.ngooperation.shafial_2411827;
 
+import main.ngooperation.AppendableObjectOutputStream;
+import main.ngooperation.BinaryFileReadWrite;
 import main.ngooperation.Employee;
 
-import java.io.Serializable;
+import java.io.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class FieldOfficer extends Employee implements Serializable {
 
@@ -33,7 +36,27 @@ public class FieldOfficer extends Employee implements Serializable {
         }
 
         RegisterNewBeneficiary newReg = new RegisterNewBeneficiary(1, fullName, contactNumber, community, address, "Pending");
+
+        BinaryFileReadWrite.WriteObject("BeneficiaryRegister.bin", newReg);
         return true;
 
     }
+
+    public ArrayList<Object> readRegisterNewBeneficiary(){
+        ArrayList<Object> readList = new ArrayList<>();
+
+        ObjectInputStream ois = null;
+        try{
+            File readFile = new File("RegisterNewBeneficiary.bin");
+            ois = new ObjectInputStream(new FileInputStream(readFile));
+            while(true){
+                Object tempObj = ois.readObject();
+                readList.add(tempObj);
+            }
+        } catch (Exception e) {
+            //
+        }
+        return readList;
+    }
+
 }
