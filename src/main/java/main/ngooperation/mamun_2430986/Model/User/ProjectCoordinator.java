@@ -1,0 +1,219 @@
+package main.ngooperation.mamun_2430986.Model.User;
+
+import javafx.collections.ObservableList;
+import main.ngooperation.Employee;
+import main.ngooperation.mamun_2430986.Model.NonUser.CoordinationMeeting;
+import main.ngooperation.mamun_2430986.Model.NonUser.OperationalIssue;
+import main.ngooperation.mamun_2430986.Model.NonUser.ProjectMilestone;
+import main.ngooperation.mamun_2430986.Model.NonUser.ProjectProgressReport;
+import main.ngooperation.mamun_2430986.Model.NonUser.ProjectSchedule;
+import main.ngooperation.mamun_2430986.Model.NonUser.ResourceRequest;
+import main.ngooperation.mamun_2430986.Model.NonUser.ReviewNote;
+import main.ngooperation.mamun_2430986.Model.NonUser.RiskAlert;
+import main.ngooperation.mamun_2430986.Model.NonUser.StaffAssignment;
+import main.ngooperation.mamun_2430986.Utility.FileReadWrite;
+import main.ngooperation.sonjoy_2411704.model_class.NGOApplication;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+
+public class ProjectCoordinator extends Employee implements Serializable {
+
+    private static final String SCHEDULES_FILE = "ProjectSchedules.bin";
+    private static final String ASSIGNMENTS_FILE = "StaffAssignments.bin";
+    private static final String NGO_APPLICATIONS_FILE = "NGOApplication.bin";
+    private static final String REVIEW_NOTES_FILE = "ReviewNotes.bin";
+    private static final String MILESTONES_FILE = "ProjectMilestones.bin";
+    private static final String RESOURCE_REQUESTS_FILE = "ResourceRequests.bin";
+    private static final String MEETINGS_FILE = "CoordinationMeetings.bin";
+    private static final String PROGRESS_REPORTS_FILE = "ProjectProgressReports.bin";
+    private static final String ISSUES_FILE = "OperationalIssues.bin";
+    private static final String RISK_ALERTS_FILE = "RiskAlerts.bin";
+
+    public ProjectCoordinator(int userId, String password, String userName, String phone, String role, String mail, int employeeId, LocalDate joiningDate, String designation, Float salary, String shift) {
+        super(userId, password, userName, phone, role, mail, employeeId, joiningDate, designation, salary, shift);
+    }
+
+    public static ObservableList<ProjectSchedule> loadAllSchedules() {
+        return FileReadWrite.loadData(ProjectSchedule.class, SCHEDULES_FILE);
+    }
+
+    public static boolean addSchedule(ProjectSchedule schedule) {
+        ObservableList<ProjectSchedule> all = FileReadWrite.loadData(ProjectSchedule.class, SCHEDULES_FILE);
+        for (ProjectSchedule s : all) {
+            if (s.getScheduleId().equals(schedule.getScheduleId())) {
+                return false;
+            }
+            if (s.getAssignedTeam().equals(schedule.getAssignedTeam()) && s.getPlannedDate().equals(schedule.getPlannedDate())) {
+                return false;
+            }
+        }
+        FileReadWrite.append(schedule, SCHEDULES_FILE);
+        return true;
+    }
+
+    public static ObservableList<StaffAssignment> loadAllAssignments() {
+        return FileReadWrite.loadData(StaffAssignment.class, ASSIGNMENTS_FILE);
+    }
+
+    public static boolean addAssignment(StaffAssignment assignment) {
+        ObservableList<StaffAssignment> all = FileReadWrite.loadData(StaffAssignment.class, ASSIGNMENTS_FILE);
+        for (StaffAssignment a : all) {
+            if (a.getAssignmentId().equals(assignment.getAssignmentId())) {
+                return false;
+            }
+            if (a.getStaffName().equals(assignment.getStaffName()) && a.getAssignedDate().equals(assignment.getAssignedDate())) {
+                return false;
+            }
+        }
+        FileReadWrite.append(assignment, ASSIGNMENTS_FILE);
+        return true;
+    }
+
+    public static ObservableList<NGOApplication> loadAllBeneficiaryRequests() {
+        return FileReadWrite.loadData(NGOApplication.class, NGO_APPLICATIONS_FILE);
+    }
+
+    public static boolean routeServiceRequest(Integer applicationId, String team, String noteText) {
+        ObservableList<NGOApplication> all = FileReadWrite.loadData(NGOApplication.class, NGO_APPLICATIONS_FILE);
+        for (int i = 0; i < all.size(); i++) {
+            if (all.get(i).getApplicationID().equals(applicationId)) {
+                all.get(i).setStatus("Routed to " + team);
+                FileReadWrite.saveData(all, NGO_APPLICATIONS_FILE);
+                String noteId = "RN-" + System.currentTimeMillis();
+                ReviewNote note = new ReviewNote(noteId, "APP-" + applicationId, "Project Coordinator", noteText, LocalDate.now());
+                FileReadWrite.append(note, REVIEW_NOTES_FILE);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static ObservableList<ProjectMilestone> loadAllMilestones() {
+        return FileReadWrite.loadData(ProjectMilestone.class, MILESTONES_FILE);
+    }
+
+    public static void saveReviewNote(String targetId, String reviewerRole, String noteText) {
+        String noteId = "RN-" + System.currentTimeMillis();
+        ReviewNote note = new ReviewNote(noteId, targetId, reviewerRole, noteText, LocalDate.now());
+        FileReadWrite.append(note, REVIEW_NOTES_FILE);
+    }
+
+    public static ObservableList<ResourceRequest> loadAllResourceRequests() {
+        return FileReadWrite.loadData(ResourceRequest.class, RESOURCE_REQUESTS_FILE);
+    }
+
+    public static boolean addResourceRequest(ResourceRequest request) {
+        ObservableList<ResourceRequest> all = FileReadWrite.loadData(ResourceRequest.class, RESOURCE_REQUESTS_FILE);
+        for (ResourceRequest r : all) {
+            if (r.getRequestId().equals(request.getRequestId())) {
+                return false;
+            }
+            if (r.getProjectId().equals(request.getProjectId())
+                    && r.getItem().equals(request.getItem())
+                    && r.getNeededDate().equals(request.getNeededDate())) {
+                return false;
+            }
+        }
+        FileReadWrite.append(request, RESOURCE_REQUESTS_FILE);
+        return true;
+    }
+
+    public static ObservableList<CoordinationMeeting> loadAllMeetings() {
+        return FileReadWrite.loadData(CoordinationMeeting.class, MEETINGS_FILE);
+    }
+
+    public static boolean addMeeting(CoordinationMeeting meeting) {
+        ObservableList<CoordinationMeeting> all = FileReadWrite.loadData(CoordinationMeeting.class, MEETINGS_FILE);
+        for (CoordinationMeeting m : all) {
+            if (m.getMeetingId().equals(meeting.getMeetingId())) {
+                return false;
+            }
+            if (m.getLocation().equals(meeting.getLocation()) && m.getMeetingDate().equals(meeting.getMeetingDate())) {
+                return false;
+            }
+        }
+        FileReadWrite.append(meeting, MEETINGS_FILE);
+        return true;
+    }
+
+    public static ObservableList<ProjectProgressReport> loadAllProgressReports() {
+        return FileReadWrite.loadData(ProjectProgressReport.class, PROGRESS_REPORTS_FILE);
+    }
+
+    public static String compileAndSaveReport(String projectId, String period) {
+        ObservableList<ProjectSchedule> schedules = FileReadWrite.loadData(ProjectSchedule.class, SCHEDULES_FILE);
+        ObservableList<ProjectMilestone> milestones = FileReadWrite.loadData(ProjectMilestone.class, MILESTONES_FILE);
+        ObservableList<ResourceRequest> resources = FileReadWrite.loadData(ResourceRequest.class, RESOURCE_REQUESTS_FILE);
+
+        int scheduleCount = 0;
+        for (ProjectSchedule s : schedules) {
+            if (projectId.equals("All") || s.getProjectId().equals(projectId)) {
+                scheduleCount++;
+            }
+        }
+
+        int milestoneCount = 0;
+        int completedMilestones = 0;
+        for (ProjectMilestone m : milestones) {
+            if (projectId.equals("All") || m.getProjectId().equals(projectId)) {
+                milestoneCount++;
+                if (m.getStatus().equals("Completed")) {
+                    completedMilestones++;
+                }
+            }
+        }
+
+        int resourceCount = 0;
+        for (ResourceRequest r : resources) {
+            if (projectId.equals("All") || r.getProjectId().equals(projectId)) {
+                resourceCount++;
+            }
+        }
+
+        String summary = "Activities: " + scheduleCount + ", Milestones Completed: " + completedMilestones + "/" + milestoneCount + ", Resource Requests: " + resourceCount;
+        String reportId = "PPR-" + System.currentTimeMillis();
+        ProjectProgressReport report = new ProjectProgressReport(reportId, projectId, period, summary, LocalDate.now());
+        FileReadWrite.append(report, PROGRESS_REPORTS_FILE);
+
+        return "===== Project Progress Report =====" + "\n"
+                + "Report ID: " + reportId + "\n"
+                + "Project: " + projectId + "\n"
+                + "Period: " + period + "\n"
+                + "Generated: " + LocalDate.now() + "\n\n"
+                + "Total Activity Schedules: " + scheduleCount + "\n"
+                + "Milestones Completed: " + completedMilestones + " / " + milestoneCount + "\n"
+                + "Resource Requests: " + resourceCount + "\n";
+    }
+
+    public static ObservableList<OperationalIssue> loadAllIssues() {
+        return FileReadWrite.loadData(OperationalIssue.class, ISSUES_FILE);
+    }
+
+    public static boolean escalateIssueToDirector(String issueId, String severity, String note) {
+        ObservableList<OperationalIssue> all = FileReadWrite.loadData(OperationalIssue.class, ISSUES_FILE);
+        for (int i = 0; i < all.size(); i++) {
+            OperationalIssue issue = all.get(i);
+            if (issue.getIssueId().equals(issueId)) {
+                issue.setSeverity(severity);
+                issue.setStatus("Escalated");
+                FileReadWrite.saveData(all, ISSUES_FILE);
+
+                String alertId = "ALT-" + System.currentTimeMillis();
+                RiskAlert alert = new RiskAlert(
+                        alertId,
+                        issue.getProjectId(),
+                        issue.getDescription() + " (" + note + ")",
+                        severity,
+                        "Project Coordinator",
+                        "Escalated",
+                        LocalDate.now()
+                );
+                FileReadWrite.append(alert, RISK_ALERTS_FILE);
+                saveReviewNote(issueId, "Project Coordinator", note);
+                return true;
+            }
+        }
+        return false;
+    }
+}
