@@ -3,11 +3,13 @@ package main.ngooperation.mamun_2430986.Model.User;
 import javafx.collections.ObservableList;
 import main.ngooperation.Employee;
 import main.ngooperation.mamun_2430986.Model.NonUser.CoordinationMeeting;
+import main.ngooperation.mamun_2430986.Model.NonUser.OperationalIssue;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectMilestone;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectProgressReport;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectSchedule;
 import main.ngooperation.mamun_2430986.Model.NonUser.ResourceRequest;
 import main.ngooperation.mamun_2430986.Model.NonUser.ReviewNote;
+import main.ngooperation.mamun_2430986.Model.NonUser.RiskAlert;
 import main.ngooperation.mamun_2430986.Model.NonUser.StaffAssignment;
 import main.ngooperation.mamun_2430986.Utility.FileReadWrite;
 import main.ngooperation.sonjoy_2411704.model_class.NGOApplication;
@@ -25,6 +27,8 @@ public class ProjectCoordinator extends Employee implements Serializable {
     private static final String RESOURCE_REQUESTS_FILE = "ResourceRequests.bin";
     private static final String MEETINGS_FILE = "CoordinationMeetings.bin";
     private static final String PROGRESS_REPORTS_FILE = "ProjectProgressReports.bin";
+    private static final String ISSUES_FILE = "OperationalIssues.bin";
+    private static final String RISK_ALERTS_FILE = "RiskAlerts.bin";
 
     public ProjectCoordinator(int userId, String password, String userName, String phone, String role, String mail, int employeeId, LocalDate joiningDate, String designation, Float salary, String shift) {
         super(userId, password, userName, phone, role, mail, employeeId, joiningDate, designation, salary, shift);
@@ -180,5 +184,36 @@ public class ProjectCoordinator extends Employee implements Serializable {
                 + "Total Activity Schedules: " + scheduleCount + "\n"
                 + "Milestones Completed: " + completedMilestones + " / " + milestoneCount + "\n"
                 + "Resource Requests: " + resourceCount + "\n";
+    }
+
+    public static ObservableList<OperationalIssue> loadAllIssues() {
+        return FileReadWrite.loadData(OperationalIssue.class, ISSUES_FILE);
+    }
+
+    public static boolean escalateIssueToDirector(String issueId, String severity, String note) {
+        ObservableList<OperationalIssue> all = FileReadWrite.loadData(OperationalIssue.class, ISSUES_FILE);
+        for (int i = 0; i < all.size(); i++) {
+            OperationalIssue issue = all.get(i);
+            if (issue.getIssueId().equals(issueId)) {
+                issue.setSeverity(severity);
+                issue.setStatus("Escalated");
+                FileReadWrite.saveData(all, ISSUES_FILE);
+
+                String alertId = "ALT-" + System.currentTimeMillis();
+                RiskAlert alert = new RiskAlert(
+                        alertId,
+                        issue.getProjectId(),
+                        issue.getDescription() + " (" + note + ")",
+                        severity,
+                        "Project Coordinator",
+                        "Escalated",
+                        LocalDate.now()
+                );
+                FileReadWrite.append(alert, RISK_ALERTS_FILE);
+                saveReviewNote(issueId, "Project Coordinator", note);
+                return true;
+            }
+        }
+        return false;
     }
 }

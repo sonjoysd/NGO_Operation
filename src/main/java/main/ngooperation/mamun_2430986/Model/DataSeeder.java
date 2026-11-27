@@ -7,6 +7,7 @@ import main.ngooperation.mamun_2430986.Model.NonUser.CoordinationMeeting;
 import main.ngooperation.mamun_2430986.Model.NonUser.DonorReport;
 import main.ngooperation.mamun_2430986.Model.NonUser.FundingPosition;
 import main.ngooperation.mamun_2430986.Model.NonUser.GrantApplication;
+import main.ngooperation.mamun_2430986.Model.NonUser.OperationalIssue;
 import main.ngooperation.mamun_2430986.Model.NonUser.OrganizationPolicy;
 import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectBudget;
@@ -123,6 +124,12 @@ public class DataSeeder {
         progressReports.add(new ProjectProgressReport("PPR-702", "PRJ-02", "2026-Q1", "Activities: 1, Milestones Completed: 0/1, Resource Requests: 1", LocalDate.of(2026, 3, 29)));
         FileReadWrite.saveData(progressReports, "ProjectProgressReports.bin");
 
-        System.out.println("Seeded Executive Director, ProjectSchedules.bin, StaffAssignments.bin, NGOApplication.bin, ProjectMilestones.bin, ResourceRequests.bin, CoordinationMeetings.bin, and ProjectProgressReports.bin files.");
+        ObservableList<OperationalIssue> issues = FXCollections.observableArrayList();
+        issues.add(new OperationalIssue("ISS-801", "PRJ-01", "Vendor delayed school book delivery by 10 days", "Medium", "Open", LocalDate.of(2026, 3, 24)));
+        issues.add(new OperationalIssue("ISS-802", "PRJ-03", "Monsoon flooded access road to shelter site", "High", "Open", LocalDate.of(2026, 3, 26)));
+        issues.add(new OperationalIssue("ISS-803", "PRJ-02", "Shortage of portable medical kits", "High", "Open", LocalDate.of(2026, 3, 27)));
+        FileReadWrite.saveData(issues, "OperationalIssues.bin");
+
+        System.out.println("Seeded all Executive Director and Project Coordinator .bin files.");
     }
 }
