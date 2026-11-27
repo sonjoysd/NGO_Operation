@@ -58,22 +58,27 @@ public class ApplyForNgoSupportProgramController
     @javafx.fxml.FXML
     public void submitOnAction(ActionEvent actionEvent) {
 
+        NGOApplication newApplication= new NGOApplication(
+                Integer.parseInt(beneficiaryIdTF.getText()),
+                Integer.parseInt(phoneNumTF.getText()),
+                Integer.parseInt(applicationIdTF.getText()),
+                beneficiaryNameTF.getText(),
+                programTypeCB.getValue(),
+                requestDateDP.getValue(),
+                "pending"
+        );
 
+        File file= new File("NGOApplication.bin");
 
-        File file = new File("NGOApplication.bin");
+        FileOutputStream fos;
+        ObjectOutputStream oos;
 
-        ObjectOutputStream oos = null;
-        FileOutputStream fos = null;
-
-        try{
-
-            fos = new FileOutputStream(file);
-            oos = new ObjectOutputStream(fos);
-            oos.writeObject(newApplication);
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+//        try{
+//            if (file.exists()){
+////                fos=new FileOutputStream(file,true);
+////                oos=
+//            }
+//        }
 
 
 
