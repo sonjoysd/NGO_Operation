@@ -1,6 +1,6 @@
 package main.ngooperation.mamun_2430986.Controller.ExecutiveDirector;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -116,7 +116,7 @@ public class ApproveDonorReportsController {
     }
 
     private void refresh() {
-        ObservableList<DonorReport> list = ExecutiveDirector.loadAllDonorReports();
+        ArrayList<DonorReport> list = ExecutiveDirector.loadAllDonorReports();
         reportTV.getItems().clear();
         reportTV.getItems().addAll(list);
 

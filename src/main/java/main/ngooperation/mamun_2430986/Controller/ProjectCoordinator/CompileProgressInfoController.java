@@ -1,6 +1,6 @@
 package main.ngooperation.mamun_2430986.Controller.ProjectCoordinator;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -125,7 +125,7 @@ public class CompileProgressInfoController {
     }
 
     private void refresh() {
-        ObservableList<ProjectProgressReport> list = ProjectCoordinator.loadAllProgressReports();
+        ArrayList<ProjectProgressReport> list = ProjectCoordinator.loadAllProgressReports();
         reportTV.getItems().clear();
         reportTV.getItems().addAll(list);
     }

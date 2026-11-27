@@ -1,6 +1,6 @@
 package main.ngooperation.mamun_2430986.Controller.ProjectCoordinator;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -128,7 +128,7 @@ public class ReviewServiceRequestsController {
     }
 
     private void refresh() {
-        ObservableList<NGOApplication> all = ProjectCoordinator.loadAllBeneficiaryRequests();
+        ArrayList<NGOApplication> all = ProjectCoordinator.loadAllBeneficiaryRequests();
         String selectedProgram = programCB.getValue();
 
         requestTV.getItems().clear();

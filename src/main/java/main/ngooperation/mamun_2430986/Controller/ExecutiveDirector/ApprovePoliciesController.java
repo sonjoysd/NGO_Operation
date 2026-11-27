@@ -1,6 +1,6 @@
 package main.ngooperation.mamun_2430986.Controller.ExecutiveDirector;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -116,7 +116,7 @@ public class ApprovePoliciesController {
     }
 
     private void refresh() {
-        ObservableList<OrganizationPolicy> list = ExecutiveDirector.loadAllPolicies();
+        ArrayList<OrganizationPolicy> list = ExecutiveDirector.loadAllPolicies();
         policyTV.getItems().clear();
         policyTV.getItems().addAll(list);
 

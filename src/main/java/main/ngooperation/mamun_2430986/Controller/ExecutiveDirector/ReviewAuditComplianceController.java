@@ -1,6 +1,6 @@
 package main.ngooperation.mamun_2430986.Controller.ExecutiveDirector;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -107,7 +107,7 @@ public class ReviewAuditComplianceController {
         findingTC.setCellValueFactory(new PropertyValueFactory<>("finding"));
         complianceStatusTC.setCellValueFactory(new PropertyValueFactory<>("complianceStatus"));
 
-        ObservableList<AuditSummary> all = ExecutiveDirector.loadAllAuditSummaries();
+        ArrayList<AuditSummary> all = ExecutiveDirector.loadAllAuditSummaries();
 
         periodCB.getItems().clear();
         periodCB.getItems().add("All");
@@ -129,7 +129,7 @@ public class ReviewAuditComplianceController {
 
     @FXML
     public void filterButtonOnAction(ActionEvent actionEvent) {
-        ObservableList<AuditSummary> all = ExecutiveDirector.loadAllAuditSummaries();
+        ArrayList<AuditSummary> all = ExecutiveDirector.loadAllAuditSummaries();
         String selectedPeriod = periodCB.getValue();
 
         auditTV.getItems().clear();

@@ -1,6 +1,6 @@
 package main.ngooperation.mamun_2430986.Controller.ExecutiveDirector;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -120,7 +120,7 @@ public class ApproveHighValueBudgetsController {
     }
 
     private void refresh() {
-        ObservableList<ProjectBudget> list = ExecutiveDirector.loadAllBudgets();
+        ArrayList<ProjectBudget> list = ExecutiveDirector.loadAllBudgets();
         budgetTV.getItems().clear();
         budgetTV.getItems().addAll(list);
 

@@ -1,6 +1,6 @@
 package main.ngooperation.mamun_2430986.Controller.ExecutiveDirector;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -110,7 +110,7 @@ public class ReviewFundingPositionController {
         securedAmountTC.setCellValueFactory(new PropertyValueFactory<>("securedAmount"));
         statusTC.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        ObservableList<FundingPosition> all = ExecutiveDirector.loadAllFundingPositions();
+        ArrayList<FundingPosition> all = ExecutiveDirector.loadAllFundingPositions();
 
         periodCB.getItems().clear();
         periodCB.getItems().add("All");
@@ -132,7 +132,7 @@ public class ReviewFundingPositionController {
 
     @FXML
     public void filterButtonOnAction(ActionEvent actionEvent) {
-        ObservableList<FundingPosition> all = ExecutiveDirector.loadAllFundingPositions();
+        ArrayList<FundingPosition> all = ExecutiveDirector.loadAllFundingPositions();
         String selectedPeriod = periodCB.getValue();
 
         fundingTV.getItems().clear();

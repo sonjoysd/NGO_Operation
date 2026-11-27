@@ -1,6 +1,6 @@
 package main.ngooperation.mamun_2430986.Controller.ProjectCoordinator;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -127,7 +127,7 @@ public class PrepareActivitySchedulesController {
     }
 
     private void refresh() {
-        ObservableList<ProjectSchedule> list = ProjectCoordinator.loadAllSchedules();
+        ArrayList<ProjectSchedule> list = ProjectCoordinator.loadAllSchedules();
         scheduleTV.getItems().clear();
         scheduleTV.getItems().addAll(list);
     }
