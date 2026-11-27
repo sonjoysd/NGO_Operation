@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import main.ngooperation.mamun_2430986.Model.NonUser.AuditSummary;
 import main.ngooperation.mamun_2430986.Model.NonUser.DonorReport;
+import main.ngooperation.mamun_2430986.Model.NonUser.FundingPosition;
 import main.ngooperation.mamun_2430986.Model.NonUser.GrantApplication;
 import main.ngooperation.mamun_2430986.Model.NonUser.OrganizationPolicy;
 import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
@@ -65,6 +66,13 @@ public class DataSeeder {
         alerts.add(new RiskAlert("ALT-704", "PRJ-04", "Minor training room schedule overlap", "Low", "HR Manager", "Resolved", LocalDate.of(2026, 3, 26)));
         FileReadWrite.saveData(alerts, "RiskAlerts.bin");
 
-        System.out.println("Seeded PerformanceIndicators.bin, ProjectBudgets.bin, GrantApplications.bin, DonorReports.bin, AuditSummaries.bin, OrganizationPolicies.bin, and RiskAlerts.bin");
+        ObservableList<FundingPosition> funding = FXCollections.observableArrayList();
+        funding.add(new FundingPosition("FND-801", "2026-Q1", "International Grants", "Strong", 300000.0, 290000.0));
+        funding.add(new FundingPosition("FND-802", "2026-Q1", "Corporate Sponsors", "Moderate", 150000.0, 110000.0));
+        funding.add(new FundingPosition("FND-803", "2026-Q2", "Individual Donors", "At Risk", 120000.0, 75000.0));
+        funding.add(new FundingPosition("FND-804", "2026-Q2", "Government Co-Fund", "Stable", 200000.0, 185000.0));
+        FileReadWrite.saveData(funding, "FundingPositions.bin");
+
+        System.out.println("Seeded all Executive Director .bin files.");
     }
 }
