@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="449.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.sonjoy_2411704.contoller_class.beneficiary.beneficiaryController">
+   <children>
+      <Button layoutX="4.0" layoutY="4.0" mnemonicParsing="false" onAction="#applyNgoProgramOnAction" prefHeight="46.0" prefWidth="250.0" text="Apply for NGO Support Program" />
+      <Button layoutX="4.0" layoutY="54.0" mnemonicParsing="false" onAction="#updateInformationOnAction" prefHeight="46.0" prefWidth="250.0" text="Update Personal &amp; Household Information" />
+      <Button layoutX="4.0" layoutY="104.0" mnemonicParsing="false" onAction="#checkApplicationAndServiceOnAction" prefHeight="46.0" prefWidth="250.0" text="Check Application &amp; Service Status" />
+      <Label layoutX="352.0" layoutY="14.0" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: aqua;" text="          Beneficiary Dashboard" textFill="#df1010" />
+      <Button layoutX="5.0" layoutY="154.0" mnemonicParsing="false" onAction="#materialAssistanceOnAction" prefHeight="46.0" prefWidth="250.0" text="Material Assistance" />
+      <Button layoutX="5.0" layoutY="205.0" mnemonicParsing="false" onAction="#skillDevelopmentProgramOnAction" prefHeight="46.0" prefWidth="250.0" text="Enroll in Skills Development Program" />
+      <Button layoutX="5.0" layoutY="255.0" mnemonicParsing="false" onAction="#communityServiceOnAction" prefHeight="46.0" prefWidth="250.0" text="Community Services" />
+      <Button layoutX="5.0" layoutY="305.0" mnemonicParsing="false" onAction="#submitServiceFeedbackOnAction" prefHeight="46.0" prefWidth="250.0" text="Submit Service Feedback" />
+      <Button layoutX="6.0" layoutY="355.0" mnemonicParsing="false" onAction="#reportNgoServiceProblemOnAction" prefHeight="46.0" prefWidth="250.0" text="Report NGO Service Delivery Problem" />
+      <Line endX="-136.60000610351562" endY="322.0" layoutX="395.0" layoutY="127.0" startX="-136.60000610351562" startY="-127.0" />
+   </children>
+</AnchorPane>

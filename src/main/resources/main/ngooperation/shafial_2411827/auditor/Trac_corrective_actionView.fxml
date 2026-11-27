@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="678.0" prefWidth="790.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.shafial_2411827.controller.auditor.TrackcrrectionController">
+   <children>
+      <Label fx:id="lavel" alignment="CENTER" contentDisplay="CENTER" layoutX="145.0" layoutY="16.0" prefHeight="18.0" prefWidth="422.0" style="-fx-background-color: yellow;" text="Follow up review" />
+      <Text layoutX="122.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Audit Scope" />
+      <ComboBox fx:id="AuditCB" layoutX="206.0" layoutY="52.0" prefWidth="150.0" />
+      <Text layoutX="105.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Action" />
+      <TextField fx:id="FindimgRefTF" layoutX="207.0" layoutY="90.0" />
+      <Text layoutX="119.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Active Status" />
+      <ComboBox fx:id="ActiveStatusCB" layoutX="205.0" layoutY="120.0" prefWidth="150.0" />
+      <Text layoutX="102.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Findings Referance" />
+      <TextField fx:id="SelectedACtionTF" layoutX="202.0" layoutY="158.0" />
+      <TextArea fx:id="RecordTA" layoutX="37.0" layoutY="214.0" prefHeight="98.0" prefWidth="369.0" text="Record Progress" />
+      <Text layoutX="542.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Project" />
+      <ComboBox fx:id="ProjectCB" layoutX="615.0" layoutY="55.0" prefWidth="150.0" />
+      <Text layoutX="539.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department" />
+      <ComboBox fx:id="DepartmentCB" layoutX="625.0" layoutY="103.0" prefWidth="150.0" />
+      <Text layoutX="518.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Due throught" />
+      <DatePicker fx:id="DueDP" layoutX="606.0" layoutY="142.0" />
+      <Text layoutX="511.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department Update" />
+      <TextField fx:id="DepartmentUpdateTF" layoutX="625.0" layoutY="188.0" />
+      <CheckBox fx:id="showOVerDueCM" layoutX="506.0" layoutY="255.0" mnemonicParsing="false" text="Show overdue action only" />
+      <TableView fx:id="TableView" layoutX="77.0" layoutY="339.0" prefHeight="200.0" prefWidth="370.0">
+        <columns>
+          <TableColumn fx:id="ActionIdCL" prefWidth="75.0" text="Action Id" />
+          <TableColumn fx:id="FindindgsCL" prefWidth="75.0" text="Findind" />
+            <TableColumn fx:id="DepartmentCL" prefWidth="75.0" text="Department" />
+            <TableColumn fx:id="DueDateCL" prefWidth="75.0" text="Due Date" />
+            <TableColumn fx:id="StatusCL" prefWidth="75.0" text="status" />
+        </columns>
+      </TableView>
+      <Button layoutX="542.0" layoutY="361.0" mnemonicParsing="false" onAction="#LoadActionOnAction" text="Load Action" />
+      <Button layoutX="549.0" layoutY="405.0" mnemonicParsing="false" onAction="#OpenRecordOnAction" text="Open Record" />
+      <Button layoutX="552.0" layoutY="451.0" mnemonicParsing="false" onAction="#SaveFollowOnAction" text="Save folllow- up" />
+      <Text fx:id="DepartmenttoView" layoutX="95.0" layoutY="610.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department to view follow up action" />
+   </children>
+</AnchorPane>

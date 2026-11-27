@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="603.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ngooperation.shafial_2411827.controller.auditor.dashboard_controller">
+   <children>
+      <AnchorPane layoutX="112.0" layoutY="23.0" prefHeight="38.0" prefWidth="546.0" style="-fx-background-color: aqua;">
+         <children>
+            <Label alignment="CENTER" layoutX="96.0" layoutY="10.0" prefHeight="18.0" prefWidth="296.0" text="dashboard" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="30.0" layoutY="97.0" prefHeight="46.0" prefWidth="200.0">
+         <children>
+            <Label layoutY="1.0" prefHeight="46.0" prefWidth="218.0" style="-fx-background-color: aqua;" text="financial record and control" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="44.0" layoutY="169.0" mnemonicParsing="false" onAction="#ReviewFinancialOnAction" text="Review financial tranction record" />
+      <Button layoutX="44.0" layoutY="210.0" mnemonicParsing="false" onAction="#VeryfiySuppertingOnAction" text="verify supporting document  for express" />
+      <Button fx:id="ExampleProjectOnAction" layoutX="44.0" layoutY="266.0" mnemonicParsing="false" text="example project budge compalinance" />
+      <Button fx:id="IdentyfiyirregularOnAction" layoutX="44.0" layoutY="321.0" mnemonicParsing="false" text="identify irregular and  control weakness" />
+      <Button fx:id="TrackCreeectiveOnAction" layoutX="441.0" layoutY="210.0" mnemonicParsing="false" text="track creeective activitis" />
+      <Button fx:id="ReviewProcurmentOnAction" layoutX="432.0" layoutY="266.0" mnemonicParsing="false" text="review prucurment compalimce" />
+      <Button fx:id="GenaratAuditOnAction" layoutX="438.0" layoutY="308.0" mnemonicParsing="false" text="genarat audit repor" />
+      <Button fx:id="PaperAditOnAction" layoutX="441.0" layoutY="169.0" mnemonicParsing="false" text="papper adit filding" />
+      <Label layoutX="462.0" layoutY="98.0" prefHeight="46.0" prefWidth="218.0" style="-fx-background-color: aqua;" text="finding and reporting" />
+   </children>
+</AnchorPane>
