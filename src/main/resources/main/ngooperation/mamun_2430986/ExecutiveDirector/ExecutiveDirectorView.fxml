@@ -21,13 +21,13 @@
       </Text>
       <Line endX="786.0" layoutX="101.0" layoutY="103.0" startX="-100.0" />
       <Line endX="100.0" endY="353.0" layoutX="144.0" layoutY="258.0" startX="100.0" startY="-154.5" />
-      <Button layoutX="25.0" layoutY="126.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Review Organization-Wide KPIs" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="25.0" layoutY="183.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Approve High-Value Projects" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="25.0" layoutY="243.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Authorize Strategic Grant Applications" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="25.0" layoutY="302.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Review and Approve Donor Reports" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="25.0" layoutY="360.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Review Organizational Audit and Compliance Summaries" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="25.0" layoutY="421.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Approve Organization-Wide Policies" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="25.0" layoutY="482.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Monitor Major Risks and Executive Alerts" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="25.0" layoutY="541.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Review Funding and Sustainability Position" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="126.0" mnemonicParsing="false" onAction="#reviewKPIsOnAction" prefHeight="46.0" prefWidth="194.0" text="Review Organization-Wide KPIs" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="183.0" mnemonicParsing="false" onAction="#approveHighValueProjectsOnAction" prefHeight="46.0" prefWidth="194.0" text="Approve High-Value Projects" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="243.0" mnemonicParsing="false" onAction="#authorizeGrantsOnAction" prefHeight="46.0" prefWidth="194.0" text="Authorize Strategic Grant Applications" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="302.0" mnemonicParsing="false" onAction="#approveDonorReportsOnAction" prefHeight="46.0" prefWidth="194.0" text="Review and Approve Donor Reports" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="360.0" mnemonicParsing="false" onAction="#reviewAuditSummariesOnAction" prefHeight="46.0" prefWidth="194.0" text="Review Organizational Audit and Compliance Summaries" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="421.0" mnemonicParsing="false" onAction="#approvePoliciesOnAction" prefHeight="46.0" prefWidth="194.0" text="Approve Organization-Wide Policies" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="482.0" mnemonicParsing="false" onAction="#monitorRisksAlertsOnAction" prefHeight="46.0" prefWidth="194.0" text="Monitor Major Risks and Executive Alerts" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="25.0" layoutY="541.0" mnemonicParsing="false" onAction="#reviewFundingPositionOnAction" prefHeight="46.0" prefWidth="194.0" text="Review Funding and Sustainability Position" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>

@@ -21,13 +21,13 @@
         </Text>
         <Line endX="786.0" layoutX="101.0" layoutY="103.0" startX="-100.0" />
         <Line endX="100.0" endY="353.0" layoutX="144.0" layoutY="258.0" startX="100.0" startY="-154.5" />
-        <Button layoutX="25.0" layoutY="126.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Prepare Project Activity Schedules" textAlignment="CENTER" wrapText="true" />
-        <Button layoutX="25.0" layoutY="183.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Coordinate Field Staff Assignments" textAlignment="CENTER" wrapText="true" />
-        <Button layoutX="25.0" layoutY="243.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Review Beneficiary Service Requests" textAlignment="CENTER" wrapText="true" />
-        <Button layoutX="25.0" layoutY="302.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Track Project Implementation Milestones" textAlignment="CENTER" wrapText="true" />
-        <Button layoutX="25.0" layoutY="360.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Coordinate Procurement and Resource Requests" textAlignment="CENTER" wrapText="true" />
-        <Button layoutX="25.0" layoutY="421.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Organize Project Coordination Meetings" textAlignment="CENTER" wrapText="true" />
-        <Button layoutX="25.0" layoutY="482.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Compile Project Progress Information" textAlignment="CENTER" wrapText="true" />
-        <Button layoutX="25.0" layoutY="541.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" text="Escalate Project Delays and Operational Issues" textAlignment="CENTER" wrapText="true" />
+        <Button layoutX="25.0" layoutY="126.0" mnemonicParsing="false" onAction="#prepareSchedulesOnAction" prefHeight="46.0" prefWidth="194.0" text="Prepare Project Activity Schedules" textAlignment="CENTER" wrapText="true" />
+        <Button layoutX="25.0" layoutY="183.0" mnemonicParsing="false" onAction="#coordinateStaffOnAction" prefHeight="46.0" prefWidth="194.0" text="Coordinate Field Staff Assignments" textAlignment="CENTER" wrapText="true" />
+        <Button layoutX="25.0" layoutY="243.0" mnemonicParsing="false" onAction="#reviewServiceRequestsOnAction" prefHeight="46.0" prefWidth="194.0" text="Review Beneficiary Service Requests" textAlignment="CENTER" wrapText="true" />
+        <Button layoutX="25.0" layoutY="302.0" mnemonicParsing="false" onAction="#trackMilestonesOnAction" prefHeight="46.0" prefWidth="194.0" text="Track Project Implementation Milestones" textAlignment="CENTER" wrapText="true" />
+        <Button layoutX="25.0" layoutY="360.0" mnemonicParsing="false" onAction="#coordinateProcurementOnAction" prefHeight="46.0" prefWidth="194.0" text="Coordinate Procurement and Resource Requests" textAlignment="CENTER" wrapText="true" />
+        <Button layoutX="25.0" layoutY="421.0" mnemonicParsing="false" onAction="#organizeMeetingsOnAction" prefHeight="46.0" prefWidth="194.0" text="Organize Project Coordination Meetings" textAlignment="CENTER" wrapText="true" />
+        <Button layoutX="25.0" layoutY="482.0" mnemonicParsing="false" onAction="#compileProgressOnAction" prefHeight="46.0" prefWidth="194.0" text="Compile Project Progress Information" textAlignment="CENTER" wrapText="true" />
+        <Button layoutX="25.0" layoutY="541.0" mnemonicParsing="false" onAction="#escalateIssuesOnAction" prefHeight="46.0" prefWidth="194.0" text="Escalate Project Delays and Operational Issues" textAlignment="CENTER" wrapText="true" />
     </children>
 </AnchorPane>
