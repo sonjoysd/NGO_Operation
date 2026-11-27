@@ -10,9 +10,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import main.ngooperation.sonjoy_2411704.model_class.NGOApplication;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 
 public class ApplyForNgoSupportProgramController
 {
@@ -59,20 +57,25 @@ public class ApplyForNgoSupportProgramController
 
     @javafx.fxml.FXML
     public void submitOnAction(ActionEvent actionEvent) {
-        NGOApplication newApplication = new NGOApplication(Integer.parseInt(beneficiaryIdTF.getText()),
-                Integer.parseInt(phoneNumTF.getText()),
-                Integer.parseInt(applicationIdTF.getText()),
-                beneficiaryNameTF.getText(),
-                programTypeCB.getValue(),
-                requestDateDP.getValue(),
-                "Pending"
-                );
+
 
 
         File file = new File("NGOApplication.bin");
 
-        FileInputStream fis;
-        FileOutputStream fos;
+        ObjectOutputStream oos = null;
+        FileOutputStream fos = null;
+
+        try{
+
+            fos = new FileOutputStream(file);
+            oos = new ObjectOutputStream(fos);
+            oos.writeObject(newApplication);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
 
     }
 
