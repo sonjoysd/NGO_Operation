@@ -13,6 +13,7 @@ import main.ngooperation.mamun_2430986.Model.NonUser.ProjectSchedule;
 import main.ngooperation.mamun_2430986.Model.NonUser.RiskAlert;
 import main.ngooperation.mamun_2430986.Model.NonUser.StaffAssignment;
 import main.ngooperation.mamun_2430986.Utility.FileReadWrite;
+import main.ngooperation.sonjoy_2411704.model_class.NGOApplication;
 
 import java.time.LocalDate;
 
@@ -87,6 +88,13 @@ public class DataSeeder {
         assignments.add(new StaffAssignment("ASG-203", "PRJ-03", "Tariqul Islam", "Resource Handover", "Rajshahi", "Assigned", LocalDate.of(2026, 4, 12)));
         FileReadWrite.saveData(assignments, "StaffAssignments.bin");
 
-        System.out.println("Seeded Executive Director, ProjectSchedules.bin, and StaffAssignments.bin files.");
+        ObservableList<NGOApplication> applications = FXCollections.observableArrayList();
+        applications.add(new NGOApplication(1001, 1711000001, 5001, "Rahim Uddin", "Education Support Program", LocalDate.of(2026, 3, 20), "Pending"));
+        applications.add(new NGOApplication(1002, 1711000002, 5002, "Fatema Begum", "Health Support Program", LocalDate.of(2026, 3, 22), "Pending"));
+        applications.add(new NGOApplication(1003, 1711000003, 5003, "Karim Mia", "Housing Support Program", LocalDate.of(2026, 3, 25), "Pending"));
+        applications.add(new NGOApplication(1004, 1711000004, 5004, "Salma Akter", "Woman Empowerment Program", LocalDate.of(2026, 3, 27), "Routed to Empowerment Team"));
+        FileReadWrite.saveData(applications, "NGOApplication.bin");
+
+        System.out.println("Seeded Executive Director, ProjectSchedules.bin, StaffAssignments.bin, and NGOApplication.bin files.");
     }
 }
