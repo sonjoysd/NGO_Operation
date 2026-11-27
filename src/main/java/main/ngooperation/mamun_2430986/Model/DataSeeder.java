@@ -11,6 +11,7 @@ import main.ngooperation.mamun_2430986.Model.NonUser.OrganizationPolicy;
 import main.ngooperation.mamun_2430986.Model.NonUser.PerformanceIndicator;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectBudget;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectMilestone;
+import main.ngooperation.mamun_2430986.Model.NonUser.ProjectProgressReport;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectSchedule;
 import main.ngooperation.mamun_2430986.Model.NonUser.ResourceRequest;
 import main.ngooperation.mamun_2430986.Model.NonUser.RiskAlert;
@@ -117,6 +118,11 @@ public class DataSeeder {
         meetings.add(new CoordinationMeeting("MTG-603", "PRJ-03", "Shelter Material Review", "Sylhet Hub", "Team Gamma", "Scheduled", LocalDate.of(2026, 4, 11)));
         FileReadWrite.saveData(meetings, "CoordinationMeetings.bin");
 
-        System.out.println("Seeded Executive Director, ProjectSchedules.bin, StaffAssignments.bin, NGOApplication.bin, ProjectMilestones.bin, ResourceRequests.bin, and CoordinationMeetings.bin files.");
+        ObservableList<ProjectProgressReport> progressReports = FXCollections.observableArrayList();
+        progressReports.add(new ProjectProgressReport("PPR-701", "PRJ-01", "2026-Q1", "Activities: 1, Milestones Completed: 1/1, Resource Requests: 1", LocalDate.of(2026, 3, 28)));
+        progressReports.add(new ProjectProgressReport("PPR-702", "PRJ-02", "2026-Q1", "Activities: 1, Milestones Completed: 0/1, Resource Requests: 1", LocalDate.of(2026, 3, 29)));
+        FileReadWrite.saveData(progressReports, "ProjectProgressReports.bin");
+
+        System.out.println("Seeded Executive Director, ProjectSchedules.bin, StaffAssignments.bin, NGOApplication.bin, ProjectMilestones.bin, ResourceRequests.bin, CoordinationMeetings.bin, and ProjectProgressReports.bin files.");
     }
 }

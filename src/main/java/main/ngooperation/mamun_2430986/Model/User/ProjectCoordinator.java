@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 import main.ngooperation.Employee;
 import main.ngooperation.mamun_2430986.Model.NonUser.CoordinationMeeting;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectMilestone;
+import main.ngooperation.mamun_2430986.Model.NonUser.ProjectProgressReport;
 import main.ngooperation.mamun_2430986.Model.NonUser.ProjectSchedule;
 import main.ngooperation.mamun_2430986.Model.NonUser.ResourceRequest;
 import main.ngooperation.mamun_2430986.Model.NonUser.ReviewNote;
@@ -23,6 +24,7 @@ public class ProjectCoordinator extends Employee implements Serializable {
     private static final String MILESTONES_FILE = "ProjectMilestones.bin";
     private static final String RESOURCE_REQUESTS_FILE = "ResourceRequests.bin";
     private static final String MEETINGS_FILE = "CoordinationMeetings.bin";
+    private static final String PROGRESS_REPORTS_FILE = "ProjectProgressReports.bin";
 
     public ProjectCoordinator(int userId, String password, String userName, String phone, String role, String mail, int employeeId, LocalDate joiningDate, String designation, Float salary, String shift) {
         super(userId, password, userName, phone, role, mail, employeeId, joiningDate, designation, salary, shift);
@@ -129,5 +131,54 @@ public class ProjectCoordinator extends Employee implements Serializable {
         }
         FileReadWrite.append(meeting, MEETINGS_FILE);
         return true;
+    }
+
+    public static ObservableList<ProjectProgressReport> loadAllProgressReports() {
+        return FileReadWrite.loadData(ProjectProgressReport.class, PROGRESS_REPORTS_FILE);
+    }
+
+    public static String compileAndSaveReport(String projectId, String period) {
+        ObservableList<ProjectSchedule> schedules = FileReadWrite.loadData(ProjectSchedule.class, SCHEDULES_FILE);
+        ObservableList<ProjectMilestone> milestones = FileReadWrite.loadData(ProjectMilestone.class, MILESTONES_FILE);
+        ObservableList<ResourceRequest> resources = FileReadWrite.loadData(ResourceRequest.class, RESOURCE_REQUESTS_FILE);
+
+        int scheduleCount = 0;
+        for (ProjectSchedule s : schedules) {
+            if (projectId.equals("All") || s.getProjectId().equals(projectId)) {
+                scheduleCount++;
+            }
+        }
+
+        int milestoneCount = 0;
+        int completedMilestones = 0;
+        for (ProjectMilestone m : milestones) {
+            if (projectId.equals("All") || m.getProjectId().equals(projectId)) {
+                milestoneCount++;
+                if (m.getStatus().equals("Completed")) {
+                    completedMilestones++;
+                }
+            }
+        }
+
+        int resourceCount = 0;
+        for (ResourceRequest r : resources) {
+            if (projectId.equals("All") || r.getProjectId().equals(projectId)) {
+                resourceCount++;
+            }
+        }
+
+        String summary = "Activities: " + scheduleCount + ", Milestones Completed: " + completedMilestones + "/" + milestoneCount + ", Resource Requests: " + resourceCount;
+        String reportId = "PPR-" + System.currentTimeMillis();
+        ProjectProgressReport report = new ProjectProgressReport(reportId, projectId, period, summary, LocalDate.now());
+        FileReadWrite.append(report, PROGRESS_REPORTS_FILE);
+
+        return "===== Project Progress Report =====" + "\n"
+                + "Report ID: " + reportId + "\n"
+                + "Project: " + projectId + "\n"
+                + "Period: " + period + "\n"
+                + "Generated: " + LocalDate.now() + "\n\n"
+                + "Total Activity Schedules: " + scheduleCount + "\n"
+                + "Milestones Completed: " + completedMilestones + " / " + milestoneCount + "\n"
+                + "Resource Requests: " + resourceCount + "\n";
     }
 }
