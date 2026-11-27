@@ -1,7 +1,13 @@
 package main.ngooperation.shafial_2411827.controller.field_officer;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import main.ngooperation.HelloApplication;
 import main.ngooperation.shafial_2411827.FieldOfficer;
 import main.ngooperation.shafial_2411827.RegisterNewBeneficiary;
 
@@ -11,11 +17,11 @@ import java.util.ArrayList;
 public class registerNewBeneficiaryController
 {
     @javafx.fxml.FXML
-    private TableColumn ConductCL;
+    private TableColumn <RegisterNewBeneficiary,String> ConductCL;
     @javafx.fxml.FXML
     private TextField AdressTF;
     @javafx.fxml.FXML
-    private TableColumn BeneficiresCL;
+    private TableColumn <RegisterNewBeneficiary,String> BeneficiresCL;
     @javafx.fxml.FXML
     private TextField ContactTF;
     @javafx.fxml.FXML
@@ -23,11 +29,11 @@ public class registerNewBeneficiaryController
     @javafx.fxml.FXML
     private TextField CommunityTF;
     @javafx.fxml.FXML
-    private TableColumn FullNameCL;
+    private TableColumn <RegisterNewBeneficiary,String> FullNameCL;
     @javafx.fxml.FXML
     private TextArea RecordRElativeTA;
     @javafx.fxml.FXML
-    private TableColumn ServicesAreaCL;
+    private TableColumn <RegisterNewBeneficiary,String> ServicesAreaCL;
     @javafx.fxml.FXML
     private TableView<RegisterNewBeneficiary> tableView;
 
@@ -36,8 +42,10 @@ public class registerNewBeneficiaryController
 
     @javafx.fxml.FXML
     public void initialize() {
-
-
+        ServicesAreaCL.setCellValueFactory(new PropertyValueFactory<>("address"));
+        FullNameCL.setCellValueFactory(new PropertyValueFactory<>("fullName"));
+        BeneficiresCL.setCellValueFactory(new PropertyValueFactory<>("registerId"));
+        ConductCL.setCellValueFactory(new PropertyValueFactory<>("contact"));
     }
 
     @javafx.fxml.FXML
@@ -54,6 +62,17 @@ public class registerNewBeneficiaryController
 
     @javafx.fxml.FXML
     public void BackDashbordOnAction(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/main/ngooperation/shafial_2411827/field_officer/mainDashboardView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setTitle("Dashboard");
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @javafx.fxml.FXML
