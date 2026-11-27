@@ -69,7 +69,7 @@ public class ApplyForNgoSupportProgramController
 
             fos = new FileOutputStream(file);
             oos = new ObjectOutputStream(fos);
-            oos.writeObject(newApplication);
+            //oos.writeObject(newApplication);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
