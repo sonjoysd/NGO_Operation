@@ -43,7 +43,7 @@ public class registerNewBeneficiaryController
 
     @javafx.fxml.FXML
     public void RegisterOnAction(ActionEvent actionEvent) {
-        //get
+        //get, validate, verify
 
         // int userId, String password, String userName, String phone, String role, String mail, int employeeId, LocalDate joiningDate, String designation, Float salary, String shift
         FieldOfficer user1 = new FieldOfficer(1, "354grg", "xx", "343", "gfroigj", "ff", 13, LocalDate.now(), "dfd", 3.5f, "Day");
